@@ -28,7 +28,8 @@
 {{ if $isWikilink }}
   {{ $rawTitle := cond (ne $title "") $title $text }}
   {{ $parts := split $rawTitle "#" }}
-  {{ $target := index $parts 0 }}
+  {{ $targetRaw := index $parts 0 }}
+  {{ $target := path.Base $targetRaw }}
   {{ $anchor := cond (gt (len $parts) 1) (printf "#%s" (index $parts 1)) "" }}
 
   {{ $page := "" }}

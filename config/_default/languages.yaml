@@ -6,3 +6,7 @@ id:
   contentDir: content/id
   languageName: Indonesia
   weight: 20
+ar:
+  contentDir: content/ar
+  languageName: Arab
+  weight: 30
