@@ -1,0 +1,8 @@
+en:
+  contentDir: content/en
+  languageName: English
+  weight: 10
+id:
+  contentDir: content/id
+  languageName: Indonesia
+  weight: 20

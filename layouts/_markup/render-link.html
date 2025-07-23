@@ -1,24 +1,118 @@
-{{ if site.Params.wikilink | default true }}
-  {{ $isWikilink := eq .Destination "wikilinks" }}
-  {{ $isExternal := or (strings.HasPrefix .Destination "http://")
-                        (strings.HasPrefix .Destination "https://")
-                        (strings.HasPrefix .Destination "mailto:") }}
+{{/*  _markup/render-link.html  */}}
+{{- $isWikilink := eq .Destination "wikilinks" -}}
+{{- $isExternal := or (strings.HasPrefix .Destination "http://")
+  (strings.HasPrefix .Destination "https://")
+  (strings.HasPrefix .Destination "mailto:")
+-}}
 
-  {{ if $isWikilink }}
-    {{ partial "hooks/link-wikilink.html" . }}
-  {{ else if not $isExternal }}
-    {{ partial "hooks/link-internal.html" . }}
-  {{ else }}
-    {{ partial "hooks/link-external.html" . }}
+{{ if $isWikilink }}
+  {{/* --- Wikilink Handling --- */}}
+  {{ $rawTitle := cond (ne .Title "") .Title .Text }}
+  {{ $target := $rawTitle }}
+  {{ $parts := split $target "#" }}
+  {{ $pagePath := index $parts 0 }}
+  {{ $anchor := "" }}
+  {{ if gt (len $parts) 1 }}
+    {{ $anchor = printf "#%s" (index $parts 1) }}
   {{ end }}
+
+  {{/* Cari halaman di bahasa aktif saja dan pastikan bukan taxonomy */}}
+  {{ $page := "" }}
+  {{ range site.Pages }}
+    {{ if and (eq .Lang .Page.Lang) (ne .File nil) (or (eq .File.BaseFileName $pagePath) (eq .File.TranslationBaseName $pagePath)) }}
+      {{ $page = . }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $page }}
+    <a class="link link--internal" href="{{ $page.RelPermalink }}{{ $anchor }}">
+      {{ .Text | safeHTML }}
+      {{ partial "components/icon" (dict "name" "folder-symlink") }}
+    </a>
+  {{ else }}
+    {{/* Alias detection di bahasa saat ini */}}
+    {{ $aliasPage := "" }}
+    {{ range site.Pages }}
+      {{ if and (eq .Lang .Page.Lang) (in .Aliases $target) }}
+        {{ $aliasPage = . }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $aliasPage }}
+      <a
+        class="link link--internal"
+        href="{{ $aliasPage.RelPermalink }}{{ $anchor }}"
+      >
+        {{ .Text | safeHTML }}
+        {{ partial "components/icon" (dict "name" "folder-symlink") }}
+      </a>
+    {{ else }}
+      <span class="link link--broken" title="{{ i18n "missingLink" }}">
+        {{ .Text | safeHTML }}
+        {{ partial "components/icon" (dict "name" "x-circle") }}
+      </span>
+    {{ end }}
+  {{ end }}
+
+{{ else if not $isExternal }}
+  {{/* Internal markdown links */}}
+  {{ $dest := .Destination }}
+  {{ $parts := split $dest "#" }}
+  {{ $pagePath := index $parts 0 }}
+  {{ $anchor := "" }}
+  {{ if gt (len $parts) 1 }}
+    {{ $anchor = printf "#%s" (index $parts 1) }}
+  {{ end }}
+
+  {{ $page := "" }}
+  {{ range site.Pages }}
+    {{ if and (eq .Lang .Page.Lang) (ne .File nil) (or (eq .File.BaseFileName $pagePath) (eq .File.TranslationBaseName $pagePath)) }}
+      {{ $page = . }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+
+  {{ if and $page (ne $page.File nil) }}
+    <a class="link link--internal" href="{{ $page.RelPermalink }}{{ $anchor }}">
+      {{ .Text | safeHTML }}
+      {{ partial "components/icon" (dict "name" "folder-symlink") }}
+    </a>
+  {{ else }}
+    {{ $aliasPage := "" }}
+    {{ range site.Pages }}
+      {{ if in .Aliases $dest }}
+        {{ $aliasPage = . }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $aliasPage }}
+      <a
+        class="link link--internal"
+        href="{{ $aliasPage.RelPermalink }}{{ $anchor }}"
+      >
+        {{ .Text | safeHTML }}
+        {{ partial "components/icon" (dict "name" "folder-symlink") }}
+      </a>
+    {{ else }}
+      <span class="link link--broken" title="{{ i18n "missingLink" }}">
+        {{ .Text | safeHTML }}
+        {{ partial "components/icon" (dict "name" "x-circle") }}
+      </span>
+    {{ end }}
+  {{ end }}
+
 {{ else }}
-  {{ $u := urls.Parse .Destination }}
+  {{/* External links */}}
   <a
+    class="link link--external"
     href="{{ .Destination | safeURL }}"
-    {{ with .Title }}title="{{ . }}"{{ end }}
-    {{ if $u.IsAbs }}rel="external noopener noreferrer nofollow" target="_blank"{{ end }}
-    class="link {{ if $u.IsAbs }}link--external{{ else }}link--internal{{ end }}"
+    rel="external noopener noreferrer nofollow"
+    target="_blank"
   >
-    {{ .Text }}
+    {{ .Text | safeHTML }}
+    {{ partial "components/icon" (dict "name" "box-arrow-up-right") }}
   </a>
 {{ end }}
