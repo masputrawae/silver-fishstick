@@ -1,4 +1,3 @@
-{{/*  Untuk menggantikan {{ .Content }}  */}}
 {{ $content := .RawContent }}
 {{ $placeholders := slice }}
 {{ $i := 0 }}
@@ -16,7 +15,6 @@
 {{ $codeBlockMatches := findRE "(?s)```.*?```" $content }}
 {{ range $codeBlockMatches }}
   {{ if findRE "\\[\\[.*?\\]\\]" . }}
-    {{/* hanya blok yang mengandung [[...]] */}}
     {{ $placeholder := printf "WIKILINK_PLACEHOLDER_%d" $i }}
     {{ $placeholders = $placeholders | append (dict "original" . "placeholder" $placeholder) }}
     {{ $content = replace $content . $placeholder }}
@@ -24,7 +22,7 @@
   {{ end }}
 {{ end }}
 
-{{/* 3. Proses link wikilinks seperti biasa */}}
+{{/* 3. Konversi wikilink jadi markdown link dengan "wikilinks" sebagai tujuan */}}
 {{ $content = replaceRE `\[\[(https?://[^\|\]]+)\|([^\]]+)\]\]` `[$2]($1)` $content }}
 {{ $content = replaceRE `\[\[(https?://[^\]]+)\]\]` `[$1]($1)` $content }}
 {{ $content = replaceRE `\[\[([^\|\]]+)\|([^\]]+)\]\]` `[$2](wikilinks "$1")` $content }}
