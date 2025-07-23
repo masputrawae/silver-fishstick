@@ -1,6 +1,10 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  {{ if site.Params.wikilink | default true }}
+    {{ partial "components/content" . }}
+  {{ else }}
+    {{ .Content }}
+  {{ end }}
   {{ range .Pages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ .Summary }}

@@ -1,0 +1,24 @@
+{{ if site.Params.wikilink | default true }}
+  {{ $isWikilink := eq .Destination "wikilinks" }}
+  {{ $isExternal := or (strings.HasPrefix .Destination "http://")
+                        (strings.HasPrefix .Destination "https://")
+                        (strings.HasPrefix .Destination "mailto:") }}
+
+  {{ if $isWikilink }}
+    {{ partial "hooks/link-wikilink.html" . }}
+  {{ else if not $isExternal }}
+    {{ partial "hooks/link-internal.html" . }}
+  {{ else }}
+    {{ partial "hooks/link-external.html" . }}
+  {{ end }}
+{{ else }}
+  {{ $u := urls.Parse .Destination }}
+  <a
+    href="{{ .Destination | safeURL }}"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+    {{ if $u.IsAbs }}rel="external noopener noreferrer nofollow" target="_blank"{{ end }}
+    class="link {{ if $u.IsAbs }}link--external{{ else }}link--internal{{ end }}"
+  >
+    {{ .Text }}
+  </a>
+{{ end }}

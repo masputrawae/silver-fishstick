@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
-<head>
-  {{ partial "head.html" . }}
-</head>
-<body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
-</body>
+<!doctype html>
+<html
+  lang="{{- site.Language.LanguageCode }}"
+  dir="{{- or site.Language.LanguageDirection `ltr` }}"
+  data-theme="auto"
+>
+  <head>
+    {{- partialCached "headed/meta" . }}
+    {{- partialCached "headed/assets" . }}
+  </head>
+
+  <body>
+    <div class="layout">
+      {{- partial "components/header" . }}
+      {{- partial "components/sidebar_left" . }}
+
+      <main class="main">
+        <article class="markdown">
+          {{- block "main" . }}
+          {{- end }}
+        </article>
+      </main>
+
+      {{- partial "components/sidebar_right" . }}
+      {{- partial "components/footer" . }}
+    </div>
+
+    <div id="ovelay"></div>
+    <div id="linkpreview"></div>
+  </body>
 </html>

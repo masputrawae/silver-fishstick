@@ -5,6 +5,10 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{ if site.Params.wikilink | default true }}
+    {{ partial "components/content" . }}
+  {{ else }}
+    {{ .Content }}
+  {{ end }}
+  {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
 {{ end }}
