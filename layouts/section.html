@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  {{ if site.Params.wikilink | default true }}
-    {{ partial "components/content" . }}
+  {{ if site.Params.wikilink | default false }}
+    {{ partial "components/wikilink" . }}
   {{ else }}
     {{ .Content }}
   {{ end }}

@@ -5,8 +5,8 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
-  {{ if site.Params.wikilink | default true }}
-    {{ partial "components/content" . }}
+  {{ if site.Params.wikilink | default false }}
+    {{ partial "components/wikilink" . }}
   {{ else }}
     {{ .Content }}
   {{ end }}
