@@ -1,3 +1,17 @@
+{{ define "render-link" }}
+  <a class="link link--internal" href="{{ .href }}">
+    {{ .text }}
+    {{ partial "components/icon" (dict "name" "folder-symlink") }}
+  </a>
+{{ end }}
+
+{{ define "render-broken" }}
+  <span class="link link--broken" title="{{ i18n "missingLink" }}">
+    {{ .text }}
+    {{ partial "components/icon" (dict "name" "x-circle") }}
+  </span>
+{{ end }}
+
 {{ if site.Params.wikilink | default false }}
   {{- $destination := .Destination | default "" -}}
   {{- $text := .Text | safeHTML | default "" -}}
@@ -11,20 +25,6 @@
     (strings.HasPrefix $destination "https://")
     (strings.HasPrefix $destination "mailto:")
   -}}
-
-  {{ define "render-link" }}
-    <a class="link link--internal" href="{{ .href }}">
-      {{ .text }}
-      {{ partial "components/icon" (dict "name" "folder-symlink") }}
-    </a>
-  {{ end }}
-
-  {{ define "render-broken" }}
-    <span class="link link--broken" title="{{ i18n "missingLink" }}">
-      {{ .text }}
-      {{ partial "components/icon" (dict "name" "x-circle") }}
-    </span>
-  {{ end }}
 
   {{ if $isWikilink }}
     {{ $rawTitle := cond (ne $title "") $title $text }}
