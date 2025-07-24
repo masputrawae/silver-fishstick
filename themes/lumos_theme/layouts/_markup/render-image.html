@@ -13,8 +13,6 @@
     {{ $base := .Page.File.Dir | strings.TrimPrefix "content" | strings.TrimPrefix "/" | strings.TrimSuffix "/" }}
     {{ $imageSrc = print "/" $base "/" $imageSrc | urlize }}
   {{ end }}
-
-
   <img
     src="{{ $imageSrc }}"
     {{- with $titleText }}
