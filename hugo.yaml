@@ -1,0 +1,89 @@
+baseURL: 'https://example.org/'
+languageCode: 'id'
+title: 'Hugo Theme'
+theme: 'lumos_theme'
+
+defaultContentLanguage: id
+languages:
+  en:
+    contentDir: content/en
+    languageName: English
+    weight: 10
+    timeZone: America/New_York
+    menus:
+      main:
+        - name: Home
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: Get Started
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: Tutorial
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: Blog
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
+
+  id:
+    contentDir: content/id
+    languageName: Indonesia
+    weight: 20
+    timeZone: Asia/Jakarta
+    menus:
+      main:
+        - name: Beranda
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: Mulai Dari Sini
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: Tutorial
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: Blog
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
+
+
+  ar:
+    contentDir: content/ar
+    languageName: عربي
+    weight: 30
+    timeZone: Asia/Riyadh
+    languageDirection: rtl
+    menus:
+      main:
+        - name: الرئيسية
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: ابدأ من هنا
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: دروس
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: المدونة
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
