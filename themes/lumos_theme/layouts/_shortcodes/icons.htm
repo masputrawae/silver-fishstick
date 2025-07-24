@@ -1,0 +1,5 @@
+{{ $name := .Get 0 }}
+{{ $class := .Get 1 | default "icon" }}
+<svg class="{{ $class }}" aria-hidden="true" focusable="false">
+  <use href="/svg/sprite.svg#icon-{{ $name }}"></use>
+</svg>

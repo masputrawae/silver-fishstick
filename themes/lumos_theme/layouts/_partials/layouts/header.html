@@ -8,5 +8,8 @@
     <span>{{ site.Title }}</span>
   </a>
 
-  {{ partial "components/i18n_list" . }}
+  <nav>
+    {{ partial "components/switch_theme" . }}
+    {{ partial "components/i18n_list" . }}
+  </nav>
 </header>

@@ -43,6 +43,11 @@ chevron-double-right
 sun
 person-circle
 tools
+chevron-right
+rocket
+play-circle
+pause-circle
+translate
 
 alexa
 behance
