@@ -1,0 +1,13 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+html {
+  @include m.custom-scrollbar(var(--base-border), var(--primary));
+  font-size: v.$fs-base;
+}
+
+body {
+  font-family: v.$font-sans;
+  background-color: var(--base-bg);
+  color: var(--base-color);
+}

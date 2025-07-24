@@ -35,6 +35,10 @@ _Inilah teks miring menggunakan underscore._
 
 **_Kombinasi tebal dan miring._**
 
+~~Strikethrough~~
+
+==Highlight==
+
 ## Tautan
 
 Klik di sini untuk belajar [Hugo lebih lanjut](https://gohugo.io).
