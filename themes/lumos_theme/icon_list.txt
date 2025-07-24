@@ -48,7 +48,7 @@ rocket
 play-circle
 pause-circle
 translate
-display
+pc-display
 moon-stars-fill
 
 alexa
