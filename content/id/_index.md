@@ -27,19 +27,15 @@ Situs ini juga tersedia dalam:
 - 🇬🇧 [Bahasa Inggris](/en/)
 - 🇸🇦 [Bahasa Arab](/ar/)
 
-Ini `[[harusnya tidak diubah]]` dan ini juga: `![[logo.jpg]]`
+{{< columns >}}
+  {{< column >}}
+  Ini kolom pertama.
+  {{< /column >}}
 
-```js
-// [[jangan ubah ini]]
-// ![[logo.jpg]]
-console.log("test");
-```
-
-![[/logo.png|Alt|Caption]]
-[[test-wikilink]]
-[[test-wikilink|Label]]
-[[https://example.com|Site Here]]
-[[https://example.com]]
+  {{< column >}}
+  Ini kolom kedua.
+  {{< /column >}}
+{{< /columns >}}
 
 
 ## 🚀 Mulai Sekarang
