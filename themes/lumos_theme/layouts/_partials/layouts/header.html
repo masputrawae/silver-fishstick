@@ -1,0 +1,12 @@
+<header>
+  <a href="{{ site.BaseURL | relLangURL }}" class="brand">
+    {{ with site.Params.logo }}
+      <img src="{{ . | relURL }}" alt="{{ site.Title }}">
+    {{ else }}
+      <span>{{ site.Params.emoji }}</span>
+    {{ end }}
+    <span>{{ site.Title }}</span>
+  </a>
+
+  {{ partial "components/i18n_list" . }}
+</header>

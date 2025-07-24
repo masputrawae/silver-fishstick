@@ -1,0 +1,21 @@
+{{ with .GitInfo }}
+  <nav class="git-history">
+    <strong class="git-history__label">History</strong>
+    <ul class="git-history__list">
+      {{ $allCommits := slice . | append .Ancestors }}
+      {{ range $allCommits }}
+        <li class="git-history__item">
+          <a 
+            href="{{ site.Params.ghrepo }}/blob/{{ .Hash }}/content/{{ $.Page.File.Path }}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="git-history__link"
+          >
+            <span class="git-history__date">{{ .CommitDate.Format "2006-01-02" }}</span>
+            <span class="git-history__subject">{{ .Subject }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}

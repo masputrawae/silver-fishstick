@@ -5,14 +5,14 @@
   data-theme="auto"
 >
   <head>
-    {{- partialCached "headed/meta" . }}
+    {{- partial "headed/meta" . }}
     {{- partialCached "headed/assets" . }}
   </head>
 
   <body>
     <div class="layout">
-      {{- partial "components/header" . }}
-      {{- partial "components/sidebar_left" . }}
+      {{- partial "layouts/header" . }}
+      {{- partial "layouts/sidebar_left" . }}
 
       <main class="main">
         <article class="markdown">
@@ -21,8 +21,8 @@
         </article>
       </main>
 
-      {{- partial "components/sidebar_right" . }}
-      {{- partial "components/footer" . }}
+      {{- partial "layouts/sidebar_right" . }}
+      {{- partial "layouts/footer" . }}
     </div>
 
     <div id="ovelay"></div>

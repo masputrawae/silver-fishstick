@@ -1,2 +1,77 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{{/* 
+=================== 
+INITIAL THEME
+===================
+*/}}
+
+{{/*  
+<script>
+  (function () {
+    const KEY_THEME = 'theme';
+    let storageTheme;
+    try {
+      storageTheme = sessionStorage.getItem(KEY_THEME);
+    } catch (e) {
+      storageTheme = null;
+    }
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = storageTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+
+    console.info('%c✨ Biar Ngak Kedip ✨', 'color: #00b894; font-weight: bold;');
+    console.info('Kalau kamu inspect, selamat! Kamu orang penasaran. 😉');
+    console.info('🌙 Theme dipasang lebih awal biar nggak kedip ya. Selamat ngulik, dev 👨‍💻👩‍💻');
+  })();
+</script>  */}}
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+{{ range site.Params.favicons }}
+  <link 
+    rel="{{ .rel }}" 
+    {{ with .type }}type="{{ . }}"{{ end }}
+    {{ with .size }}sizes="{{ . }}"{{ end }}
+    href="{{ .href | absURL }}"
+  />
+{{ end }}
+
+{{/* 
+=================== 
+Generate description once
+===================
+*/}}
+{{- $description := "" -}}
+{{- if .Params.description -}}
+  {{- $description = .Params.description | plainify | htmlEscape -}}
+{{- else -}}
+  {{- $description = .Summary | plainify | truncate 160 | htmlEscape -}}
+{{- end -}}
+
+{{/* 
+=================== 
+SEO Meta
+===================
+*/}}
+<meta name="description" content="{{ $description }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="{{ site.Params.author }}" />
+
+{{ if .Params.tags }}
+  <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.keywords }}{{ end }}" />
+{{ end }}
+
+<link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}">
+
+<meta name="twitter:site" content="{{ site.Params.twitter }}" />
+
+{{ partial "google_analytics.html" . }}
+{{ partial "opengraph.html" . }}
+{{ partial "schema.html" . }}
+{{ partial "twitter_cards.html" . }}
+
+<link rel="manifest" href="{{ "manifest.json" | absURL }}" />
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" /> 
