@@ -22,13 +22,19 @@
   {{ end }}
 {{ end }}
 
-{{/* 3. Konversi wikilink jadi markdown link dengan "wikilinks" sebagai tujuan */}}
+{{/* 3. Dahulukan Pengecekan Image */}}
+{{ $content = replaceRE `!\[\[([^\|\]]+)\|([^\|\]]+)\|([^\]]+)\]\]` `![$2|$3](imageWikiLink "$1")` $content }}
+{{ $content = replaceRE `!\[\[([^\|\]]+)\|([^\]]+)\]\]` `![$2](imageWikiLink "$1")` $content }}
+{{ $content = replaceRE `!\[\[([^\]]+)\]\]` `![$1](imageWikiLink "$1")` $content }}
+
+
+{{/* 4. Konversi wikilink jadi markdown link dengan "wikilinks" sebagai tujuan */}}
 {{ $content = replaceRE `\[\[(https?://[^\|\]]+)\|([^\]]+)\]\]` `[$2]($1)` $content }}
 {{ $content = replaceRE `\[\[(https?://[^\]]+)\]\]` `[$1]($1)` $content }}
-{{ $content = replaceRE `\[\[([^\|\]]+)\|([^\]]+)\]\]` `[$2](wikilinks "$1")` $content }}
-{{ $content = replaceRE `\[\[([^\]]+)\]\]` `[$1](wikilinks "$1")` $content }}
+{{ $content = replaceRE `\[\[([^\|\]]+)\|([^\]]+)\]\]` `[$2](wikilink "$1")` $content }}
+{{ $content = replaceRE `\[\[([^\]]+)\]\]` `[$1](wikilink "$1")` $content }}
 
-{{/* 4. Kembalikan semua yang dimasking */}}
+{{/* 5. Kembalikan semua yang dimasking */}}
 {{ range $placeholders }}
   {{ $content = replace $content .placeholder .original }}
 {{ end }}

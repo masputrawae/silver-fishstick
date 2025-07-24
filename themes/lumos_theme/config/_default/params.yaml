@@ -31,7 +31,7 @@ math      : false
 #   Please use standard Markdown: ![alt text](image.jpg)
 # - Enabled by setting params.wikilink = true
 
-wikilink: false
+wikilink: true
 
 # ===================
 # 

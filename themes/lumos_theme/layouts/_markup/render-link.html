@@ -12,14 +12,14 @@
   </span>
 {{ end }}
 
-{{ if site.Params.wikilink | default false }}
+{{ if site.Params.wikilink | default true }}
   {{- $destination := .Destination | default "" -}}
   {{- $text := .Text | safeHTML | default "" -}}
   {{- $title := .Title | default "" -}}
 
   {{- $regularPages := where site.RegularPages "Lang" $.Page.Lang -}}
 
-  {{- $isWikilink := eq $destination "wikilinks" -}}
+  {{- $isWikilink := eq $destination "wikilink" -}}
   {{- $isExternal := or
     (strings.HasPrefix $destination "http://")
     (strings.HasPrefix $destination "https://")

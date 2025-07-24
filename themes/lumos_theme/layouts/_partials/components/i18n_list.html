@@ -1,12 +1,26 @@
 {{ if .IsTranslated }}
-  <label for="lang">{{ i18n "translations" }}</label>
-  <select name="lang" id="lang-select">
-    {{ range $.Site.Home.AllTranslations }}
-      <option 
-        value="{{ .RelPermalink }}"
-        {{ if eq .Language.Lang $.Site.Language.Lang }}selected{{ end }}>
+  <label for="lang-select">
+    {{ partial "components/icon" (dict "name" "translate") }}
+    <span>{{ i18n "translations" }}</span>
+    <select name="lang-select">
+      <option value="{{ .RelPermalink }}" selected>
         {{ .Language.LanguageName }}
       </option>
-    {{ end }}
-  </select>
+      {{ range .Translations }}
+        <option
+          value="{{ .RelPermalink }}"
+          {{ if eq .Language.Lang $.Site.Language.Lang }}selected{{ end }}
+        >
+          {{ .Language.LanguageName }}
+        </option>
+      {{ end }}
+    </select>
+  </label>
+  <script>
+    document.querySelectorAll('select[name="lang-select"]').forEach((el) => {
+      el.addEventListener("change", (event) => {
+        window.location.href = event.target.value;
+      });
+    });
+  </script>
 {{ end }}

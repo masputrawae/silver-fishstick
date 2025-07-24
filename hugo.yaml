@@ -59,7 +59,6 @@ languages:
           weight: 40
           params: { icon: paragraph }
 
-
   ar:
     contentDir: content/ar
     languageName: عربي

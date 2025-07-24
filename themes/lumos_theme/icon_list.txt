@@ -48,6 +48,8 @@ rocket
 play-circle
 pause-circle
 translate
+display
+moon-stars-fill
 
 alexa
 behance
