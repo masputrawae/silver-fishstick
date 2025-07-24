@@ -1,0 +1,66 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.header {
+  @include m.flex-justify(space-between, center);
+  position: fixed;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: var(--second-bg);
+  border-bottom: 1px solid var(--base-border);
+  z-index: 100;
+
+  &__left-col {
+    @include m.flex-justify(space-between, center);
+    width: 100%;
+    padding-inline: 1rem;
+  }
+
+  &__nav-buttons {
+    @include m.flex-justify(center, center);
+    gap: 0.5rem;
+  }
+
+  &__left-actions {
+    @include m.size(35px);
+    @include m.flex-justify(center, center);
+    color: var(--second-color);
+
+    &--search {
+      span {
+        display: none;
+      }
+    }
+  }
+
+  &__right-col {
+    display: none;
+  }
+}
+
+.brand {
+  @include m.flex-justify(center, center);
+  gap: 0.5rem;
+
+  &__logo {
+    @include m.size(50px);
+  }
+
+  &__emoji {
+    font-size: v.$fs-4xl;
+  }
+
+  &__title {
+    color: var(--second-color);
+    font-size: v.$fs-2xl;
+    font-family: v.$font-serif;
+    text-shadow: var(--base-text-shadow);
+
+    &:hover {
+      color: var(--primary);
+      text-shadow: var(--second-text-shadow);
+    }
+  }
+}

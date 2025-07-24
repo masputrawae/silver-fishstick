@@ -12,9 +12,9 @@
     <div class="header__nav-buttons">
       <button class="header__left-actions header__left-actions--search">
         {{ partial "components/icon" (dict "name" "search" ) }}
-        {{ i18n "search" }}
+        <span>Search content...</span>
       </button>
-      <button class="header__left-actions">
+      <button data-sidebar="sidebarLeft" class="header__left-actions">
         {{ partial "components/icon" (dict "name" "list" ) }}
       </button>
     </div>

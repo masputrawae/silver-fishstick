@@ -1,0 +1,78 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.sidebar {
+  @include m.custom-scrollbar(var(--base-border), var(--primary));
+  @include m.width-height(100%, 100dvh);
+  position: fixed;
+  inset-block-start: 5rem;
+  padding-block-end: 6rem;
+  background-color: var(--second-bg);
+  overflow-y: auto;
+  display: none;
+  
+  &--isOpen {
+    display: block;
+  }
+}
+
+.menu {
+  padding: 0.5rem 0.75rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--base-border);
+  box-shadow: var(--base-shadow);
+  background-color: var(--base-bg);
+
+  &__link {
+    @include m.flex-justify(start, center);
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    margin-block: 0.25rem;
+    color: var(--second-color);
+    text-shadow: var(--base-text-shadow);
+    font-weight: 600;
+
+    &--isActive,
+    &--isAncestor {
+      text-shadow: var(--second-text-shadow);
+      box-shadow: var(--base-shadow);
+      background-color: var(--second-bg);
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.tree {
+  padding-inline: 1rem;
+
+  &__toggle {
+    width: 100%;
+    @include m.flex-justify(space-between, center);
+    color: var(--second-color);
+    font-weight: 600;
+  }
+
+  &__list {
+    padding-inline-start: 1rem;
+    margin-inline-start: 0.5rem;
+    border-inline-start: 1px solid var(--base-border);
+  }
+
+  &__item {
+    margin-block: 0.5rem;
+  }
+
+  &__link {
+    @include m.text-ellipsis;
+    display: block;
+    padding: 0.2rem 0.5rem;
+    color: var(--third-color);
+
+    &--isActive {
+      font-weight: 600;
+      color: var(--cl-white);
+      border-radius: 0.25rem;
+    }
+  }
+}

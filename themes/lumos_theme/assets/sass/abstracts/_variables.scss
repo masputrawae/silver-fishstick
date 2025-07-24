@@ -49,7 +49,7 @@ Some common ratios often used in design:
 ==========================================
 */
 
-$fs-base      : 16px;
+$fs-base      : 14px;
 $scale-ratio  : 1.125;
 
 @function scale($step) { @return math.div( math.div(math.round($fs-base * pow($scale-ratio, $step) * 100), 100), $fs-base) * 1rem;}

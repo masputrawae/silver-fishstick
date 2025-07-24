@@ -54,7 +54,7 @@
 // SIZE (SQUARE)
 // =====================
 @mixin size($size) {
-  @include size($size, $size);
+  @include width-height($size, $size);
 }
 
 // =====================
