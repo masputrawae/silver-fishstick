@@ -12,12 +12,14 @@
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <div>
-    <div>{{ $label }}:</div>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
+  <div class="widget">
+    <strong class="widget__lable">{{ $label }}:</strong>
+    <nav>
+      <ul>
+        {{- range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
   </div>
 {{- end }}

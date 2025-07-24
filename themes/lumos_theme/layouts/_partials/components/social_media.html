@@ -1,0 +1,10 @@
+{{ range site.Params.social }}
+  <a
+    href="{{ .url }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="{{ .name }}"
+  >
+    {{ partial "components/icon" (dict "name" .icon ) }}
+  </a>
+{{ end }}

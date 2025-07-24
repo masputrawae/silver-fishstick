@@ -1,4 +1,10 @@
 <nav id="sidebarLeft" class="sidebar">
   {{ partial "components/menu.html" (dict "menuID" "main" "page" .) }}
   {{ partial "components/tree_nav" . }}
+
+  <div class="sidebar__bottom">
+    {{ partial "components/social_media" . }}
+    {{ partial "components/switch_theme" . }}
+    {{ partial "components/i18n_list" . }}
+  </div>
 </nav>

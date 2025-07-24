@@ -1,11 +1,14 @@
 <aside id="sidebarRight" class="sidebar sidebar--right">
-  <strong class="sidebar__title">On This Page</strong>
+  {{ if in (slice "section" "page") .Kind }}
+    <div class="widget">
+      <strong class="widget__lable">On This Page</strong>
+      {{ .TableOfContents }}
+    </div>
+  {{ end }}
 
-  {{ .TableOfContents }}
-  
   {{ range $taxonomy := site.Params.displayTaxonomies }}
     {{ partial "components/terms.html" (dict "taxonomy" $taxonomy "page" $.Page ) }}
   {{ end }}
-  
+
   {{ partial "components/git_history" . }}
 </aside>

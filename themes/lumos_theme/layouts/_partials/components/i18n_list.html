@@ -1,8 +1,12 @@
 {{ if .IsTranslated }}
-  <h4>{{ i18n "translations" }}</h4>
-  <ul>
+  <label for="lang">{{ i18n "translations" }}</label>
+  <select name="lang" id="lang-select">
     {{ range $.Site.Home.AllTranslations }}
-      <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+      <option 
+        value="{{ .RelPermalink }}"
+        {{ if eq .Language.Lang $.Site.Language.Lang }}selected{{ end }}>
+        {{ .Language.LanguageName }}
+      </option>
     {{ end }}
-  </ul>
+  </select>
 {{ end }}

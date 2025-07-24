@@ -1,14 +1,27 @@
-<header>
-  <a href="{{ site.BaseURL | relLangURL }}" class="brand">
-    {{ with site.Params.logo }}
-      <img src="{{ . | relURL }}" alt="{{ site.Title }}">
-    {{ else }}
-      <span>{{ site.Params.emoji }}</span>
-    {{ end }}
-    <span>{{ site.Title }}</span>
-  </a>
+<header class="header">
+  <nav class="header__left-col">
+    <a href="{{ site.BaseURL | relLangURL }}" class="brand">
+      {{ with site.Params.logo }}
+        <img src="{{ . | relURL }}" alt="{{ site.Title }}" class="brand__logo"/>
+      {{ else }}
+        <span class="brand__emoji">{{ site.Params.emoji }}</span>
+      {{ end }}
+      <span class="brand__title">{{ site.Title }}</span>
+    </a>
 
-  <nav>
+    <div class="header__nav-buttons">
+      <button class="header__left-actions header__left-actions--search">
+        {{ partial "components/icon" (dict "name" "search" ) }}
+        {{ i18n "search" }}
+      </button>
+      <button class="header__left-actions">
+        {{ partial "components/icon" (dict "name" "list" ) }}
+      </button>
+    </div>
+  </nav>
+
+  <nav class="header__right-col">
+    {{ partial "components/social_media" . }}
     {{ partial "components/switch_theme" . }}
     {{ partial "components/i18n_list" . }}
   </nav>
