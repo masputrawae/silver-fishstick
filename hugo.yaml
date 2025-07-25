@@ -6,6 +6,7 @@ languageCode: id
 enableEmoji: true
 enableGitInfo: true
 defaultContentLanguage: id
+title: My Notes
 
 #===================
 # PARAMS SETTING
@@ -25,8 +26,8 @@ params:
   branch: main
 
   # GISCUS
+  giscus: false
   giscusConfig:
-    defaultActive: true
     dataRepo: "masputrawae/masputrawae.github.io"
     dataRepoId: "R_kgDOPAdouw"
     dataCategory: "General"
@@ -91,7 +92,7 @@ params:
       icon: github
 
   # COPYRIGHT
-  themeCopyright: Theme by Putra Jaya
+  themeCredit: Theme by Putra Jaya
 
 #===================
 # LANGUAGES SETTING

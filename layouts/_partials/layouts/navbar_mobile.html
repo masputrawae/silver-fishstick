@@ -1,0 +1,26 @@
+<nav class="navbar navbar--mobile">
+  <button data-sidebar="sidebarLeft" class="navbar__btn">
+    {{ partial "components/icon" (dict "name" "list" ) }}
+    <span class="sr-only">{{ T "openLeftSide"}}</span>
+  </button>
+
+  <button id="toggleTheme" class="navbar__btn">
+    {{ partial "components/icon" (dict "name" "pc-display" ) }}
+    <span class="sr-only">{{ T "switchTheme" }}</span>
+  </button>
+
+  <a href="{{ site.BaseURL | relLangURL }}" class="navbar__btn">
+    {{ partial "components/icon" (dict "name" "house" ) }}
+    <span class="sr-only">{{ site.Title }}</span>
+  </a>
+  
+  <button data-dialog="searchBar" class="navbar__btn">
+    {{ partial "components/icon" (dict "name" "search" ) }}
+    <span class="sr-only">{{ T "SearchThroughSiteContent"}}</span>
+  </button>
+  
+  <button data-sidebar="sidebarRight" class="navbar__btn">
+    {{ partial "components/icon" (dict "name" "book" ) }}
+    <span class="sr-only">{{ T "openRightSide"}}</span>
+  </button>
+</nav>

@@ -1,0 +1,25 @@
+<div class="copyright" role="document">
+  <p class="credit">
+    <a
+      href="https://gohugo.io/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      class="credit__link credit__hugo"
+      >{{ T "BuiltWithHugo" }}</a
+    >
+    <span> · </span>
+    {{ with site.Params.themeCredit }}
+      <a
+        href="/"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        class="credit__link credit__link--theme"
+        >{{ . }}</a
+      >
+    {{ end }}
+  </p>
+
+  <p class="copyright__site">
+    &copy; {{ site.Title }} · {{ now.Year }}. {{ T "AllRightsReserved" }}
+  </p>
+</div>

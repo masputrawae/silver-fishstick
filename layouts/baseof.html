@@ -7,15 +7,15 @@
 <head>
   {{- partial "headed/meta" . -}}
   {{- partial "headed/font" . -}}
-  {{- partialCached "headed/embed-script" . -}}
+  {{- partialCached "headed/embed_script" . -}}
   {{- partialCached "headed/js" . -}}
   {{- partialCached "headed/sass" . -}}
 </head>
 <body>
 
 <div class="layout">
-  {{ partial "layout/header" . }}
-  {{ partial "layout/sidebar_left" . }}
+  {{ partial "layouts/header" . }}
+  {{ partial "layouts/sidebar_left" . }}
 
   <main class="main">
     <article class="markdown">
@@ -25,9 +25,11 @@
     </article>
   </main>
   
-  {{ partial "layout/sidebar_right" . }}
-  {{ partial "layout/footer" . }}
+  {{ partial "layouts/sidebar_right" . }}
+  {{ partial "layouts/footer" . }}
 </div>
+
+{{ partial "layouts/navbar_mobile" . }}
 
 <div class="overlay" id="overlay"></div>
 <div class="linkpreview" id="linkpreview"></div>
