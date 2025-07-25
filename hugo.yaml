@@ -4,6 +4,9 @@ title: 'Hugo Theme'
 theme: 'lumos_theme'
 enableGitInfo: true
 
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: true
+
 mediaType                : 'application/json'
 outputFormats:
   search:

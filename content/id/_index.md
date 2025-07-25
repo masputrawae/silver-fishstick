@@ -40,7 +40,7 @@ Situs ini juga tersedia dalam:
 
 ## 🚀 Mulai Sekarang
 
-Buka halaman [Get Started](/id/get-started/) dan mulailah membangun situs Hugo pertama kamu dalam hitungan menit!
+Buka halaman [Get Started](/get-started/) dan mulailah membangun situs Hugo pertama kamu dalam hitungan menit!
 
 ---
 

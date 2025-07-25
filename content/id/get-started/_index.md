@@ -16,8 +16,8 @@ Selamat datang di bagian **Get Started**! Di sini kamu akan mempelajari dasar-da
 
 ## 📖 Daftar Isi
 
-1. [Instalasi](/id/get-started/installation/)
-2. [Klon Tema](/id/get-started/clone-theme/)
-3. [Konfigurasi Awal](/id/get-started/configuration/)
+1. [Instalasi](/get-started/installation/)
+2. [Klon Tema](/get-started/clone-theme/)
+3. [Konfigurasi Awal](/get-started/configuration/)
 
-Siap? Mari mulai dari langkah pertama: [Instalasi](/id/get-started/installation/).
+Siap? Mari mulai dari langkah pertama: [Instalasi](/get-started/installation/).
