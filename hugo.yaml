@@ -1,0 +1,203 @@
+#===================
+# BASE SETTING
+#===================
+baseURL: https://masputrawae.github.io/silver-fishstick/
+languageCode: id
+enableEmoji: true
+enableGitInfo: true
+defaultContentLanguage: id
+
+#===================
+# PARAMS SETTING
+#===================
+params:
+  author: Putra Jaya
+  emoji: 📚
+  logo: images/logo.png
+
+  # PAGE SETTING
+  editPage: true
+  toc: true
+  math: false
+
+  # GIT INFO
+  ghrepo: masputrawae/masputrawae.github.io
+  branch: main
+
+  # GISCUS
+  giscusConfig:
+    defaultActive: true
+    dataRepo: "masputrawae/masputrawae.github.io"
+    dataRepoId: "R_kgDOPAdouw"
+    dataCategory: "General"
+    dataCategoryId: "DIC_kwDOPAdou84CtQ2d"
+    dataMapping: "title"
+    dataStrict: 0
+    dataReactionsEnabled: 1
+    dataEmitMetadata: 1
+    dataInputPosition: "top"
+
+  # FAVICONS
+  favicons:
+    - rel: icon
+      type: image/x-icon
+      href: assets/favicons/favicon.ico
+
+    - rel: apple-touch-icon
+      type: image/png
+      size: 180x180
+      href: assets/favicons/apple-touch-icon.png
+
+    - rel: icon
+      type: image/png
+      size: 32x32
+      href: assets/favicons/favicon-32x32.png
+
+    - rel: icon
+      type: image/png
+      size: 16x16
+      href: assets/favicons/favicon-16x16.png
+
+    - rel: icon
+      type: image/png
+      size: 192x192
+      href: assets/favicons/android-chrome-192x192.png
+
+    - rel: icon
+      type: image/png
+      size: 512x512
+      href: assets/favicons/android-chrome-512x512.png
+
+  # SOCIAL LINK
+  social:
+    - name: Instagram
+      url: https://www.instagram.com/masputrawae/
+      icon: instagram
+
+    - name: Twitter X
+      url: https://x.com/Masputrawae
+      icon: twitter-x
+
+    - name: Facebook
+      url: https://facebook.com/Masputrawae
+      icon: facebook
+
+    - name: Discord
+      url: https://discord.gg/nM4EP8DJFZ
+      icon: discord
+
+    - name: GitHub
+      url: https://github.com/masputrawae/
+      icon: github
+
+  # COPYRIGHT
+  themeCopyright: Theme by Putra Jaya
+
+#===================
+# LANGUAGES SETTING
+#===================
+languages:
+  id:
+    languageCode: id
+    contentDir: content
+    languageName: Bahasa Indonesia
+    weight: 1
+    timeZone: Asia/Jakarta
+    menus:
+      main:
+        - name: Beranda
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: Mulai Dari Sini
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: Tutorial
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: Blog
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
+          
+        - name: Tentang
+          pageRef: /about
+          weight: 40
+          params: { icon: person-circle }
+
+#===================
+# MARKUP SETTING
+#===================
+markup:
+  goldmark:
+    renderHooks:
+      image:
+        enableDefault: true
+        useEmbedded: auto
+      link:
+        enableDefault: true
+        useEmbedded: auto
+    renderer:
+      unsafe: true
+    extensions:
+      definitionList: true
+      extras:
+        delete:
+          enable: true
+        insert:
+          enable: true
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+      footnote: true
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+        enable: true
+    parser:
+      wrapStandAloneImageWithinParagraph: true
+      attribute:
+        block: true
+        title: true
+
+  # TABLE OF CONTENTS
+  tableOfContents:
+    endLevel: 6
+    ordered: false
+    startLevel: 2
+
+  # HIGHLIGHT
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: "github-dark"
+    noClasses: false
+    lineNumbersInTable: false
+    lineNos: false
+    anchorLineNos: false
+    lineAnchors: ""
+    lineNoStart: 1
+    tabWidth: 4
+
+#===================
+# MODULES SETTING
+#===================
+module: 
+  hugoVersion:
+    extended        : true
+    min             : '0.148.1'

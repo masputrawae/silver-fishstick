@@ -1,0 +1,36 @@
+<script>
+  (function () {
+    try {
+      const theme = sessionStorage.getItem("THEME");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const resolved = theme === "auto" || !theme
+        ? (systemPrefersDark ? "dark" : "light")
+        : theme;
+
+      document.documentElement.dataset.theme = resolved;
+    } catch (e) {
+      document.documentElement.dataset.theme = "light";
+    }
+  })();
+</script>
+
+{{- if .Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+{{- end }}
+
+{{- if .Param "math" }}
+  <script>
+    MathJax = {
+      tex: {
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
+        inlineMath: [['\\(', '\\)']]                  // inline
+      },
+      loader:{
+        load: ['ui/safe']
+      },
+    };
+  </script>
+{{- end }}

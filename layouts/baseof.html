@@ -1,17 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<!doctype html>
+<html
+  lang="{{- site.Language.LanguageCode -}}"
+  dir="{{- or site.Language.LanguageDirection `ltr` -}}"
+  data-theme="auto"
+>
 <head>
-  {{ partial "head.html" . }}
+  {{- partial "headed/meta" . -}}
+  {{- partial "headed/font" . -}}
+  {{- partialCached "headed/embed-script" . -}}
+  {{- partialCached "headed/js" . -}}
+  {{- partialCached "headed/sass" . -}}
 </head>
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
+
+<div class="layout">
+  {{ partial "layout/header" . }}
+  {{ partial "layout/sidebar_left" . }}
+
+  <main class="main">
+    <article class="markdown">
+      <h1>{{ .Title }}</h1>
+      {{ block "main" . }}
+      {{ end }}
+    </article>
   </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+  
+  {{ partial "layout/sidebar_right" . }}
+  {{ partial "layout/footer" . }}
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="linkpreview" id="linkpreview"></div>
+
 </body>
 </html>
