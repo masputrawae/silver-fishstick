@@ -1,11 +1,10 @@
 <label class="theme">
   <span class="sr-only">{{ T "switchTheme" }}</span>
-  {{ partial "components/icon" (dict "name" "pc-display") }}
+  {{ partial "components/icon" (dict "name" "pc-display" "class" "icon--theme") }}
 
   <select name="select-theme" class="theme__select">
-    <option value="auto" selected>{{ T "auto" }}</option>
+    <option value="auto">{{ T "auto" }}</option>
     <option value="dark">{{ T "dark" }}</option>
     <option value="light">{{ T "light" }}</option>
   </select>
-
 </label>

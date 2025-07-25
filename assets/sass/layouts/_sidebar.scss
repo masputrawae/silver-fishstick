@@ -1,0 +1,98 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.sidebar {
+  @include m.width-height(100%, 100dvh);
+  @include m.custom-scrollbar(var(--base-border), var(--primary));
+  overflow-y: auto;
+  padding: 1rem;
+  position: fixed;
+  inset-block-start: 4rem;
+  padding-block-end: 10rem;
+
+  &--left {
+    inset-inline-start: 0;
+    background-color: var(--second-bg);
+  }
+
+  &--right {
+    display: none;
+  }
+}
+
+.menu {
+  padding: 0.5rem;
+  margin-block: 1rem;
+  background-color: var(--base-bg);
+  border-radius: 0.5rem;
+  border: 1px solid var(--base-border);
+  box-shadow: var(--base-shadow);
+
+  &__link {
+    @include m.flex-justify(start, center);
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    color: var(--second-color);
+    font-weight: 600;
+    font-size: v.$fs-xl;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+
+    &--isActive {
+      color: var(--cl-white);
+      background-color: var(--primary-bg);
+      border-color: var(--primary-border);
+    }
+
+    &--isAncestor {
+      background-color: var(--second-bg);
+      border-color: var(--second-border);
+    }
+  }
+
+  &__icon {
+    @include m.size(v.$fs-xl);
+  }
+}
+
+.tree {
+  margin-block-start: 2rem;
+  padding-inline: 0.25rem;
+  
+  &__toggle {
+    @include m.flex-justify(space-between, center);
+    width: 100%;
+    padding-block: 0.25rem;
+    font-weight: 600;
+    color: var(--second-color);
+  }
+
+  &__icon-toggle {
+
+    &--isOpen {
+      rotate: 90deg;
+    }
+  }
+
+  &__list {
+    padding-inline-start: 1.25rem;
+    margin-inline-start: 0.25rem;
+    border-left: 1px solid var(--base-border);
+
+    display: none;
+
+    &--isOpen {
+      display: block;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    color: var(--third-color);
+
+    &--isActive {
+      color: var(--second-color);
+    }
+  }
+}

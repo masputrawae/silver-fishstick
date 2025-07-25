@@ -18,11 +18,11 @@
 
         <li class="tree__section">
           <button 
-            class="tree__toggle{{ if $isOpen }} tree__toggle--isOpen{{ end }}" 
+            class="tree__toggle" 
             data-folder-target="{{ .RelPermalink | md5 }}"
           >
             {{ .LinkTitle }}
-            {{ partial "components/icon" (dict "name" "chevron-right") }}
+            {{ partial "components/icon" (dict "name" "chevron-right" "class" "tree__icon-toggle") }}
           </button>
 
           <ul id="{{ .RelPermalink | md5 }}" class="tree__list{{ if $isOpen }} tree__list--isOpen{{ end }}">

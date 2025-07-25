@@ -1,26 +1,26 @@
 <nav class="navbar navbar--mobile">
   <button data-sidebar="sidebarLeft" class="navbar__btn">
-    {{ partial "components/icon" (dict "name" "list" ) }}
-    <span class="sr-only">{{ T "openLeftSide"}}</span>
+    {{ partial "components/icon" (dict "name" "list" "class" "navbar__icon-btn" ) }}
+    <span class="sr-only">{{ T "openLeftSide" }}</span>
   </button>
 
   <button id="toggleTheme" class="navbar__btn">
-    {{ partial "components/icon" (dict "name" "pc-display" ) }}
+    {{ partial "components/icon" (dict "name" "pc-display" "class" "icon--theme navbar__icon-btn" ) }}
     <span class="sr-only">{{ T "switchTheme" }}</span>
   </button>
 
   <a href="{{ site.BaseURL | relLangURL }}" class="navbar__btn">
-    {{ partial "components/icon" (dict "name" "house" ) }}
+    {{ partial "components/icon" (dict "name" "house" "class" "navbar__icon-btn" ) }}
     <span class="sr-only">{{ site.Title }}</span>
   </a>
-  
+
   <button data-dialog="searchBar" class="navbar__btn">
-    {{ partial "components/icon" (dict "name" "search" ) }}
-    <span class="sr-only">{{ T "SearchThroughSiteContent"}}</span>
+    {{ partial "components/icon" (dict "name" "search" "class" "navbar__icon-btn" ) }}
+    <span class="sr-only">{{ T "SearchThroughSiteContent" }}</span>
   </button>
-  
+
   <button data-sidebar="sidebarRight" class="navbar__btn">
-    {{ partial "components/icon" (dict "name" "book" ) }}
-    <span class="sr-only">{{ T "openRightSide"}}</span>
+    {{ partial "components/icon" (dict "name" "book" "class" "navbar__icon-btn" ) }}
+    <span class="sr-only">{{ T "openRightSide" }}</span>
   </button>
 </nav>

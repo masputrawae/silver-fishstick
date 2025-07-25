@@ -40,7 +40,7 @@ Renders a menu for the given menu ID.
         {{- end -}}
       >
         {{ with .Params.icon }}
-          {{ partial "components/icon" (dict "name" . ) }}
+          {{ partial "components/icon" (dict "name" . "class" "menu__icon") }}
         {{ end }}
         {{ $name }}
       </a>
