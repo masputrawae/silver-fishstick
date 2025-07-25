@@ -23,15 +23,25 @@
     gap: 0.5rem;
   }
 
-  &__left-actions {
+  &__btn {
     @include m.size(35px);
     @include m.flex-justify(center, center);
     color: var(--second-color);
 
-    &--search {
+    &--open-search {
       span {
         display: none;
       }
+    }
+
+    &--open-right-side {
+      position: fixed;
+      inset-block-end: 1rem;
+      inset-inline-end: 1rem;
+      background-color: var(--second-bg);
+      border-radius: 0.25rem;
+      border: 1px solid var(--base-border);
+      box-shadow: var(--base-shadow);
     }
   }
 

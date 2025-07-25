@@ -1,10 +1,13 @@
-{{ range site.Params.social }}
-  <a
-    href="{{ .url }}"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="{{ .name }}"
-  >
-    {{ partial "components/icon" (dict "name" .icon ) }}
-  </a>
-{{ end }}
+<div class="social">
+  {{ range site.Params.social }}
+    <a
+      href="{{ .url }}"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      aria-label="{{ .name }}"
+      class="social__link"
+    >
+      {{ partial "components/icon" (dict "name" .icon "class" "social__icon" ) }}
+    </a>
+  {{ end }}
+</div>

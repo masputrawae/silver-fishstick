@@ -1,0 +1,16 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.social {
+  @include m.flex-justify(center, center);
+  gap: 0.5rem;
+
+  &__link {
+    display: inline-flex;
+    padding: 0.5rem;
+  }
+
+  &__icon {
+    @include m.size(v.$fs-2xl);
+  }
+}

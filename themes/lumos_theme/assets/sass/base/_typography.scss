@@ -48,6 +48,16 @@
     }
   }
 
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    .icon {
+      @include m.size(v.$fs-sm);
+    }
+  }
+
   p {
     margin-block: 1.5rem;
   }

@@ -11,3 +11,13 @@ body {
   background-color: var(--base-bg);
   color: var(--base-color);
 }
+
+.icon {
+  @include m.size(v.$fs-base);
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.sr-only {
+  @include m.visually-hidden();
+}

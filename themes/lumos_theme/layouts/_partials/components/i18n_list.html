@@ -1,8 +1,8 @@
 {{ if .IsTranslated }}
-  <label>
+  <label class="switch-lang">
+    <span class="sr-only">Terjemah</span>
     {{ partial "components/icon" (dict "name" "translate") }}
-    <span>{{ i18n "translations" }}</span>
-    <select name="lang-select">
+    <select name="lang-select" class="switch-lang__select">
       <option value="{{ .RelPermalink }}" selected>
         {{ .Language.LanguageName }}
       </option>

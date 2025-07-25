@@ -6,19 +6,35 @@
   @include m.width-height(100%, 100dvh);
   position: fixed;
   inset-block-start: 5rem;
-  padding-block-end: 6rem;
+  padding-block-end: 10rem;
+  padding-block-start: 0.5rem;
+  padding-inline: 1rem;
   background-color: var(--second-bg);
   overflow-y: auto;
   display: none;
-  
+  z-index: 50;
+
   &--isOpen {
     display: block;
+  }
+
+  &__switcher {
+    @include m.flex-justify(space-between, center);
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    border-block: 1px solid var(--base-border);
+  }
+
+  .social {
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    border-block-start: 1px solid var(--base-border);
   }
 }
 
 .menu {
-  padding: 0.5rem 0.75rem;
-  margin: 1rem;
+  padding: 0.75rem;
+  margin: 1.5rem 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--base-border);
   box-shadow: var(--base-shadow);
@@ -44,12 +60,14 @@
 }
 
 .tree {
-  padding-inline: 1rem;
+  padding-inline: 0.5rem;
+  margin-block-end: 2rem;
 
   &__toggle {
-    width: 100%;
     @include m.flex-justify(space-between, center);
+    width: 100%;
     color: var(--second-color);
+    margin-block: 0.5rem;
     font-weight: 600;
   }
 
@@ -57,6 +75,11 @@
     padding-inline-start: 1rem;
     margin-inline-start: 0.5rem;
     border-inline-start: 1px solid var(--base-border);
+    display: none;
+
+    &--isOpen {
+      display: block;
+    }
   }
 
   &__item {
@@ -70,7 +93,30 @@
     color: var(--third-color);
 
     &--isActive {
-      font-weight: 600;
+      color: var(--cl-white);
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+#TableOfContents {
+  ul ul {
+    border-inline-start: 1px solid var(--base-border);
+    padding-inline-start: 1rem;
+    margin-inline-start: 0.5rem;
+  }
+
+  li {
+    margin-block: 0.5rem;
+  }
+
+  a {
+    @include m.text-ellipsis;
+    display: block;
+    padding: 0.25rem 0rem;
+    color: var(--third-color);
+
+    &.isActive {
       color: var(--cl-white);
       border-radius: 0.25rem;
     }

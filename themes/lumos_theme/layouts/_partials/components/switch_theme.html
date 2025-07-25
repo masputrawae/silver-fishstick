@@ -1,10 +1,13 @@
-<label>
+<label class="switch-theme" id="switchTheme">
+  <span class="sr-only">Switch Theme</span>
   {{ partial "components/icon" (dict "name" "moon-stars-fill" "class" "icon--moon-stars-fill") }}
   {{ partial "components/icon" (dict "name" "sun" "class" "icon--sun") }}
   {{ partial "components/icon" (dict "name" "pc-display" "class" "icon--pc-display") }}
-  <select name="select-theme">
+
+  <select name="select-theme" class="switch-theme__select">
     <option value="dark">Dark</option>
     <option value="light">Light</option>
     <option value="auto">Auto</option>
   </select>
+
 </label>
