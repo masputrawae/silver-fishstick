@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:floating": "esbuild bundle-floating-ui.js --bundle --minify --format=esm --outfile=assets/js/module_external/floating_ui.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
   },
   "homepage": "https://github.com/masputrawae/silver-fishstick#readme",
   "dependencies": {
-    "bootstrap-icons": "^1.13.1"
+    "@floating-ui/dom": "^1.7.2",
+    "bootstrap-icons": "^1.13.1",
+    "fuse.js": "^7.1.0"
   },
   "devDependencies": {
     "prettier": "^3.6.2",

@@ -2,7 +2,9 @@ export function themeHandler() {
   const KEY_THEME = "THEME";
   const elHtml = document.documentElement;
   const switchThemeLabels = document.querySelectorAll(".switch-theme");
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 
   const switchTheme = (theme) => {
     const newTheme = theme === "auto" ? systemTheme : theme;
@@ -14,7 +16,7 @@ export function themeHandler() {
       label.classList.remove(
         "switch-theme--isActiveAuto",
         "switch-theme--isActiveDark",
-        "switch-theme--isActiveLight"
+        "switch-theme--isActiveLight",
       );
 
       const activeClass =
