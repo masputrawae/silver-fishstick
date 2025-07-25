@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://masputrawae.github.io/sitemap.xml
