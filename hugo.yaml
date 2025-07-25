@@ -27,6 +27,11 @@ params:
   ghrepo: masputrawae/masputrawae.github.io
   branch: main
 
+  # WIDGET TAXONOMY
+  displayTaxonomies:
+    - tags
+    - categories
+
   # GISCUS
   giscus: false
   giscusConfig:

@@ -1,0 +1,10 @@
+<aside class="sidebar sideabr--right" id="sidebarRight">
+  <div class="widget">
+    <strong class="widget__title">On This Page</strong>
+    {{ .TableOfContents }}
+  </div>
+  {{ range $taxonomy := site.Params.displayTaxonomies }}
+    {{ partial "components/terms.html" (dict "taxonomy" $taxonomy "page" $.Page ) }}
+  {{ end }}
+  {{ partial "components/git_history" . }}
+</aside>
