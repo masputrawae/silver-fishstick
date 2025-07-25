@@ -1,0 +1,44 @@
+$dark: (
+  base-bg: #09090b,
+  second-bg: #18181b,
+  third-bg: #27272a,
+
+  base-color: #e4e4e7,
+  second-color: #fafafa,
+  third-color: #a1a1aa,
+
+  base-border: #3f3f46,
+  second-border: #52525b,
+  third-border: #71717a,
+
+  primary: #3b82f6,
+  primary-bg: #1e40af,
+  primary-border: #172554,
+  primary-text-emphasis: #93c5fd,
+
+  danger: #ef4444,
+  danger-bg: #991b1b,
+  danger-border: #450a0a,
+  danger-text-emphasis: #fca5a5,
+
+  success: #22c55e,
+  success-bg: #166534,
+  success-border: #052e16,
+  success-text-emphasis: #86efac,
+
+  warning: #eab308,
+  warning-bg: #854d0e,
+  warning-border: #422006,
+  warning-text-emphasis: #fde047,
+
+  info: #0ea5e9,
+  info-bg: #075985,
+  info-border: #082f49,
+  info-text-emphasis: #7dd3fc,
+
+  base-shadow: '0 1px 2px rgba(0, 0, 0, 0.4)',
+  second-shadow: '0 4px 6px rgba(0, 0, 0, 0.5)',
+
+  base-text-shadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
+  second-text-shadow: '0 2px 2px rgba(0, 0, 0, 0.35)',
+) !default;
