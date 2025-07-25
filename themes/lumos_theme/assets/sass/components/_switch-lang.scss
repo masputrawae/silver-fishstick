@@ -4,4 +4,10 @@
 .switch-lang {
   display: flex;
   align-items: center;
+
+  &__select {
+    background-color: var(--second-bg);
+    padding: 0.5rem 1rem;
+    outline: none;
+  }
 }

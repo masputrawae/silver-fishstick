@@ -6,26 +6,21 @@ INITIAL THEME
 ===================
 */}}
 
-{{/*  
 <script>
   (function () {
-    const KEY_THEME = 'theme';
-    let storageTheme;
     try {
-      storageTheme = sessionStorage.getItem(KEY_THEME);
+      const theme = sessionStorage.getItem("THEME");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const resolved = theme === "auto" || !theme
+        ? (systemPrefersDark ? "dark" : "light")
+        : theme;
+
+      document.documentElement.dataset.theme = resolved;
     } catch (e) {
-      storageTheme = null;
+      document.documentElement.dataset.theme = "light";
     }
-
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = storageTheme || (prefersDark ? 'dark' : 'light');
-    document.documentElement.dataset.theme = theme;
-
-    console.info('%c✨ Biar Ngak Kedip ✨', 'color: #00b894; font-weight: bold;');
-    console.info('Kalau kamu inspect, selamat! Kamu orang penasaran. 😉');
-    console.info('🌙 Theme dipasang lebih awal biar nggak kedip ya. Selamat ngulik, dev 👨‍💻👩‍💻');
   })();
-</script>  */}}
+</script>
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 

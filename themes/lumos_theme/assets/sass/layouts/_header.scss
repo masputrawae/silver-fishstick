@@ -11,6 +11,7 @@
   background-color: var(--second-bg);
   border-bottom: 1px solid var(--base-border);
   z-index: 100;
+  box-shadow: var(--base-shadow);
 
   &__left-col {
     @include m.flex-justify(space-between, center);

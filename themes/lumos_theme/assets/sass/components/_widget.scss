@@ -1,0 +1,96 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.widget {
+  &__label {
+    font-size: v.$fs-lg;
+    color: var(--second-color);
+    display: block;
+    border-block-end: 1px dashed var(--base-border);
+    margin-block: 1rem;
+    padding-block-end: 0.25rem;
+    font-weight: 400;
+  }
+
+  &__terms {
+    @include m.flex-justify(start, center);
+    gap: 0.5rem;
+  }
+}
+
+// ===================
+// GIT HISTORY
+// ===================
+.git-history {
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+  
+  &__list {
+    list-style: none;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 10px;
+      width: 2px;
+      background-color: var(--base-border);
+      z-index: 1;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-inline-start: 2rem;
+    margin-block-end: 1.5rem;
+    z-index: 2;
+
+    &::before {
+      content: '';
+      @include m.size(10px);
+      position: absolute;
+      inset-inline-start: 6px;
+      inset-block-start: 40%;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 2px solid var(--base-border);
+      z-index: 3;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: var(--third-color);
+    padding: 0.5rem 1rem;
+    background-color: var(--base-bg);
+    border-radius: 6px;
+    border: 1px solid var(--base-border);
+    transition: all 0.2s ease;
+    box-shadow: var(--base-shadow);
+    
+    &:hover {
+      background-color: var(--second-bg);
+      border-color: var(--second-border);
+      transform: translateX(2px);
+      box-shadow: var(--second-shadow);
+    }
+  }
+
+  &__date {
+    display: block;
+    font-size: v.$fs-3xs;
+    color: var(--second-color);
+    margin-block-end: 0.25rem;
+  }
+
+  &__subject {
+    display: block;
+    font-size: v.$fs-sm;
+    line-height: 1.4;
+  }
+}

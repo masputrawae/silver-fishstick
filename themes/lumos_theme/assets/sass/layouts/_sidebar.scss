@@ -115,10 +115,11 @@
     display: block;
     padding: 0.25rem 0rem;
     color: var(--third-color);
+    border-block-end: 1px dashed transparent;
 
     &.isActive {
-      color: var(--cl-white);
-      border-radius: 0.25rem;
+      color: var(--primary);
+      border-block-end-color: var(--primary-border);
     }
   }
 }

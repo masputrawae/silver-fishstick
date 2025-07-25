@@ -4,4 +4,38 @@
 .switch-theme {
   display: flex;
   align-items: center;
+
+  .icon {
+    display: none;
+  }
+
+  &:not(&--isActiveDark):not(&--isActiveLight):not(&--isActiveAuto) {
+    .icon--pc-display {
+      display: inline-flex;
+    }
+  }
+
+  &--isActiveDark {
+    .icon--moon-stars-fill {
+      display: inline-flex;
+    }
+  }
+
+  &--isActiveLight {
+    .icon--sun {
+      display: inline-flex;
+    }
+  }
+
+  &--isActiveAuto {
+    .icon--pc-display {
+      display: inline-flex;
+    }
+  }
+
+  &__select {
+    background-color: var(--second-bg);
+    padding: 0.5rem 1rem;
+    outline: none;
+  }
 }
