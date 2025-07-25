@@ -1,0 +1,18 @@
+<style>
+  .highlight code::after {
+    content: "{{ T "copy" }}";
+    position: absolute;
+    inset-block-end: 100%;
+    inset-inline-end: 0;
+    font-size: 0.75rem;
+    color: var(--second-color);
+    padding: 0.3rem 0.5rem;
+    cursor:grab;
+  }
+
+  .highlight.copied code::after {
+    content: "{{ T "coppied" }}";
+    color: var(--success);
+    cursor: copy;
+  }
+</style>

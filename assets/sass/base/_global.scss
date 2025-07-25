@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
 
 html {
   @include m.custom-scrollbar(var(--base-border), var(--primary));
@@ -8,6 +8,10 @@ html {
   background-color: var(--base-bg);
   color: var(--base-color);
   font-weight: 400;
+}
+
+main {
+  padding-inline: 1rem;
 }
 
 button {
