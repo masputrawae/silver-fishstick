@@ -6,6 +6,8 @@ languageCode: id
 enableEmoji: true
 enableGitInfo: true
 defaultContentLanguage: id
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: true
 title: My Notes
 
 #===================
@@ -14,7 +16,7 @@ title: My Notes
 params:
   author: Putra Jaya
   emoji: 📚
-  logo: images/logo.png
+  logo: assets/images/logo.png
 
   # PAGE SETTING
   editPage: true

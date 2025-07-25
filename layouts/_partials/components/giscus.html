@@ -1,0 +1,22 @@
+{{- $gi := site.Params.giscusConfig }}
+
+<div class="discussion">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{- $gi.dataRepo }}"
+    data-repo-id="{{- $gi.dataRepoId }}"
+    data-category="{{- $gi.dataCategory }}"
+    data-category-id="{{- $gi.dataCategoryId }}"
+    data-mapping="{{- $gi.dataMapping }}"
+    data-strict="{{- $gi.dataStrict }}"
+    data-reactions-enabled="{{- $gi.dataReactionsEnabled }}"
+    data-emit-metadata="{{- $gi.dataEmitMetadata }}"
+    data-input-position="{{- $gi.dataInputPosition }}"
+    data-lang="{{- site.Language.LanguageCode -}}"
+
+    data-theme="preferred_color_scheme"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
