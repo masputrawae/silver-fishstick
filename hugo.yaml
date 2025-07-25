@@ -102,7 +102,7 @@ params:
 languages:
   id:
     languageCode: id
-    contentDir: content
+    contentDir: content/id
     languageName: Bahasa Indonesia
     weight: 1
     timeZone: Asia/Jakarta
