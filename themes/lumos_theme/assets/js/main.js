@@ -1,12 +1,12 @@
-document.addEventListener('DOMContentLoaded', ()=> {
-  
-  document.querySelectorAll('[data-sidebar]').forEach(btn => {
-    const targetId = btn.getAttribute('data-sidebar');
-    const targetEl = document.getElementById(targetId);
+import { treeHandler } from "./module_internal/tree_collapsible";
+import { offcanvasHandler } from "./module_internal/offcanvas";
+import { modalSearchHandler, searchHandler } from "./module_internal/search";
 
-    btn.addEventListener('click', ()=>{
-      targetEl.classList.toggle('sidebar--isOpen');
-    })
-  })
+const main = () => {
+  treeHandler();
+  offcanvasHandler();
+  searchHandler();
+  modalSearchHandler();
+};
 
-})
+document.addEventListener("DOMContentLoaded", main);
