@@ -127,10 +127,110 @@ languages:
           pageRef: /blog
           weight: 40
           params: { icon: paragraph }
-          
+
         - name: Tentang
           pageRef: /about
+          weight: 50
+          params: { icon: person-circle }
+
+  en:
+    languageCode: en-us
+    contentDir: content/en
+    languageName: English
+    weight: 2
+    timeZone: UTC
+    menus:
+      main:
+        - name: Home
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: Get Started
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: Tutorial
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: Blog
+          pageRef: /blog
           weight: 40
+          params: { icon: paragraph }
+
+        - name: About
+          pageRef: /about
+          weight: 50
+          params: { icon: person-circle }
+
+  ar:
+    languageCode: ar
+    languageDirection: rtl
+    contentDir: content/ar
+    languageName: العربية
+    weight: 3
+    timeZone: Asia/Riyadh
+    menus:
+      main:
+        - name: الرئيسية
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: ابدأ هنا
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: الدروس
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: المدونة
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
+
+        - name: حول
+          pageRef: /about
+          weight: 50
+          params: { icon: person-circle }
+
+  cn:
+    languageCode: zh-cn
+    contentDir: content/cn
+    languageName: 中文
+    weight: 4
+    timeZone: Asia/Shanghai
+    menus:
+      main:
+        - name: 首页
+          pageRef: /
+          weight: 10
+          params: { icon: house }
+
+        - name: 快速开始
+          pageRef: /get-started
+          weight: 20
+          params: { icon: rocket-takeoff }
+
+        - name: 教程
+          pageRef: /tutorial
+          weight: 30
+          params: { icon: tools }
+
+        - name: 博客
+          pageRef: /blog
+          weight: 40
+          params: { icon: paragraph }
+
+        - name: 关于
+          pageRef: /about
+          weight: 50
           params: { icon: person-circle }
 
 #===================
@@ -200,7 +300,7 @@ markup:
 #===================
 # MODULES SETTING
 #===================
-module: 
+module:
   hugoVersion:
-    extended        : true
-    min             : '0.148.1'
+    extended: true
+    min: "0.148.1"
