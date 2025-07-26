@@ -1,4 +1,5 @@
 import { handlerCopyCode } from "./module_internal/copy_code.js";
+import { dialogSearchToggle, searchHandler } from "./module_internal/search.js";
 import { sidebarHandler } from "./module_internal/sidebar.js";
 import { langHandler } from "./module_internal/switch_lang.js";
 import { themeHandler } from "./module_internal/switch_themes.js";
@@ -12,6 +13,8 @@ const main = () => {
   treeHandler();
   sidebarHandler();
   tocHandler();
+  searchHandler();
+  dialogSearchToggle();
 };
 
 document.addEventListener("DOMContentLoaded", main);

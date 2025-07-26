@@ -1,4 +1,4 @@
-<dialog id="searchBar" class="search-bar">
+<dialog id="searchBar" class="search-bar debug">
   <div class="search-bar__form">
     <label for="searchInput" class="sr-only">{{ T "search" }}</label>
     <input
@@ -9,11 +9,11 @@
       placeholder="{{ T "SearchThroughSiteContent" }}..."
       aria-label="{{ T "SearchThroughSiteContent" }}"
       autocomplete="off"
-      data-search-url="{{ "search.json" | relURL }}"
+      data-search-url="{{ "search.json" | relLangURL }}"
     />
     <button class="search-bar__btn-close" data-dialog="searchBar">
       <span class="sr-only">{{ T "closeSearchBar" }}</span>
-      {{ partial "components/icon" (dict "name" "x") }}
+      {{ partial "components/icon" (dict "name" "x" "class" "search-bar__btn-icon") }}
     </button>
   </div>
 
@@ -22,7 +22,13 @@
     class="results"
     id="resultsPanel"
     aria-live="polite"
-    data-translate="[]"
+    data-translate='{{ dict "searchCurrentlyUnavailable" (T "searchCurrentlyUnavailable") "noResultsFoundFor" (T "noResultsFoundFor") | jsonify }}'
     hidden
   ></ul>
 </dialog>
+<style>
+  dialog.search-bar.debug {
+  display: block !important;
+  z-index: 1000;
+}
+</style>

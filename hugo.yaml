@@ -239,6 +239,24 @@ languages:
           params: { icon: person-circle }
 
 #===================
+# OUTPUT SETTING
+#===================
+mediaType                : 'application/json'
+outputFormats:
+  search:
+    mediaType            : 'application/json'
+    baseName             : 'search'
+    isPlainText          : true
+    notAlternative       : true
+    
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    
+#===================
 # MARKUP SETTING
 #===================
 markup:
