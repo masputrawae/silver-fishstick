@@ -2,6 +2,7 @@
   <nav class="navbar navbar--left">
     {{ partial "components/brand" . }}
 
+
     <button data-dialog="searchBar" class="navbar__search-btn">
       {{ partial "components/icon" (dict "name" "search" ) }}
       <span>{{ T "SearchThroughSiteContent" }}</span>
@@ -16,5 +17,4 @@
 
   {{ partial "layouts/navbar_mobile" . }}
 </header>
-
 {{ partial "components/search" . }}

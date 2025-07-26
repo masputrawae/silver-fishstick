@@ -1,0 +1,77 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/breakpoints" as b;
+
+@include b.min(lg) {
+  .language,
+  .theme {
+    &__icon {
+      @include m.size(v.$fs-lg);
+    }
+
+    &__select {
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  .social {
+    border-inline-end: 1px solid var(--base-border);
+    padding-inline-end: 2rem;
+
+    &__icon {
+      @include m.size(v.$fs-2xl);
+    }
+  }
+
+  .layout {
+    grid-template-areas:
+      "header header header"
+      "sidebarLeft content sidebarRight"
+      "sidebarLeft footer sidebarRight";
+    grid-template-columns: 20rem minmax(0, 1fr) 20rem;
+  }
+
+  .navbar {
+    &__search-btn {
+      @include m.flex-justify(start, center);
+      gap: 0.5rem;
+      background-color: var(--base-bg);
+      padding: 0.5rem 1rem;
+      width: 60%;
+      border: 1px solid var(--base-border);
+      border-radius: 0.5rem;
+      box-shadow: var(--base-shadow);
+    }
+
+    &--right {
+      @include m.flex-justify(end, center);
+      gap: 2rem;
+    }
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  .sidebar {
+    &--left {
+      padding-block-start: 0;
+      .language,
+      .social {
+        display: none;
+      }
+    }
+
+    &--right {
+      padding-block-start: 1.75rem;
+      grid-area: sidebarright;
+      visibility: visible;
+      transform: translateX(0%);
+      scrollbar-width: none;
+    }
+  }
+
+  .main {
+    padding-inline: 2rem;
+  }
+}

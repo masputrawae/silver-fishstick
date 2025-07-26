@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+@use "../abstracts/breakpoints" as b;
 
 html {
   @include m.custom-scrollbar(var(--base-border), var(--primary));
@@ -40,13 +41,14 @@ button {
   }
 }
 
-.language {
+.language,
+.theme {
   @include m.flex-justify(center, center);
-  
+
   &__icon {
-    @include m.size(v.$fs-5xl)
+    @include m.size(v.$fs-5xl);
   }
-  
+
   &__select {
     padding: 0.5rem 1rem;
     background-color: var(--second-bg);

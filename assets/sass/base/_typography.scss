@@ -3,7 +3,7 @@
 
 :where(.markdown) {
   line-height: 1.65;
-  max-width: 65ch;
+  max-width: 100%;
   overflow-x: hidden;
   word-break: normal;
   overflow-wrap: anywhere;
@@ -15,6 +15,7 @@
     margin-block-start: 1.5rem;
     margin-block-end: 1rem;
     padding-block-end: 0.5rem;
+    scroll-margin-block-start: 5rem;
     line-height: 1.75;
     border-block-end: 1px solid var(--base-border);
     text-shadow: var(--base-text-shadow);

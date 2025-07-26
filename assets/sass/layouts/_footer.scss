@@ -17,5 +17,9 @@ footer {
   &__link {
     color: var(--primary);
     font-weight: 600;
+
+    &:hover {
+      color: var(--primary-text-emphasis);
+    }
   }
 }

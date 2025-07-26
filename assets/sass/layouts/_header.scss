@@ -17,31 +17,31 @@
   inset-inline-start: 0;
   inset-block-start: 0;
   border-block-end: 1px solid var(--base-border);
+}
 
-  .navbar {
-    width: 100%;
-    @include m.flex-justify(space-between, center);
+.navbar {
+  width: 100%;
+  @include m.flex-justify(space-between, center);
 
-    &__search-btn {
-      display: none;
-    }
+  &__search-btn {
+    display: none;
+  }
 
-    &--right {
-      display: none;
-    }
+  &--right {
+    display: none;
+  }
 
-    &--mobile {
-      @extend %header;
-      background-color: var(--second-bg);
-      border-block-start: 1px solid var(--base-border);
-      inset-block-end: 0;
-      inset-inline-start: 0;
-    }
+  &--mobile {
+    @extend %header;
+    background-color: var(--second-bg);
+    border-block-start: 1px solid var(--base-border);
+    inset-block-end: 0;
+    inset-inline-start: 0;
+  }
 
-    &__icon-btn {
-      @include m.size(v.$fs-3xl);
-      color: var(--second-color);
-    }
+  &__icon-btn {
+    @include m.size(v.$fs-3xl);
+    color: var(--second-color);
   }
 }
 

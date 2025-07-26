@@ -17,12 +17,14 @@
     inset-inline-start: 0;
     background-color: var(--second-bg);
     transform: translateX(-100%);
+    border-inline-end: 1px solid var(--base-border);
   }
-
+  
   &--right {
     inset-inline-end: 0;
     background-color: var(--base-bg);
     transform: translateX(100%);
+    border-inline-start: 1px solid var(--base-border);
   }
 
   &--isOpen {
@@ -67,7 +69,7 @@
 }
 
 .tree {
-  margin-block-start: 2rem;
+  margin-block-end: 2rem;
   padding-inline: 0.25rem;
 
   &__toggle {
@@ -123,7 +125,7 @@
   ul ul {
     padding-inline-start: 1.25rem;
     margin-inline-start: 0.25rem;
-    border-left: 1px solid var(--base-border);
+    border-inline-start: 1px solid var(--base-border);
   }
 
   a {
