@@ -1,4 +1,20 @@
 import { $, $$ } from "./helper";
+import { renderGiscus } from "./render_giscus";
+function updateGiscusTheme(theme) {
+  const iframe = document.querySelector("iframe.giscus-frame");
+  if (!iframe) return;
+
+  iframe.contentWindow?.postMessage(
+    {
+      giscus: {
+        setConfig: {
+          theme: theme,
+        },
+      },
+    },
+    "https://giscus.app",
+  );
+}
 
 export function themeHandler() {
   const elHtml = document.documentElement;
@@ -43,12 +59,14 @@ export function themeHandler() {
     const themeContainer = $(".theme");
     const themeSelect = $('select[name="select-theme"]', themeContainer);
     if (themeSelect) themeSelect.value = theme;
+    // 👉 Update tema Giscus juga
+    updateGiscusTheme(resolved);
+    renderGiscus(resolved)
   };
 
   const init = () => {
-    const saved = sessionStorage.getItem(KEY_THEME) || "auto";
-    const resolved = resolveTheme(saved);
-    applyTheme(saved);
+    const saved = sessionStorage.getItem(KEY_THEME);
+    applyTheme(saved || "auto");
   };
 
   // === Event bindings ===

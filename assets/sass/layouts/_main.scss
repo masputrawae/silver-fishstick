@@ -1,5 +1,5 @@
-@use '../abstracts/mixins' as m;
-@use '../abstracts/variables' as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
 
 main {
   padding-block: 5rem;
@@ -39,5 +39,23 @@ main {
   &__title {
     font-size: v.$fs-4xl;
     font-weight: 600;
+  }
+}
+
+// SEMENTARA DISINI
+.multi-column-list {
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .multi-column-list {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .multi-column-list {
+    column-count: 1;
   }
 }

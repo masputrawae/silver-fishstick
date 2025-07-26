@@ -2,24 +2,6 @@
   <h1>{{ .Title }}</h1>
   {{ partial "layouts/markdown" . }}
   {{ if in (slice "section" "taxonomy" "term") .Kind }}
-    <style>
-      .multi-column-list {
-        column-count: 3;
-        column-gap: 2rem;
-      }
-
-      @media (max-width: 768px) {
-        .multi-column-list {
-          column-count: 2;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .multi-column-list {
-          column-count: 1;
-        }
-      }
-    </style>
     <ul class="multi-column-list">
       {{ range .Pages }}
         <li>
