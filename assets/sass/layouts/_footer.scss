@@ -4,3 +4,18 @@
 footer {
   padding: 5rem 1rem;
 }
+
+.copyright {
+  @include m.flex-justify(center, center);
+  flex-direction: column;
+  padding-block: 4rem;
+}
+
+.credit {
+  margin-block: 1rem;
+  
+  &__link {
+    color: var(--primary);
+    font-weight: 600;
+  }
+}
