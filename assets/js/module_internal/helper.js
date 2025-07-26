@@ -1,6 +1,15 @@
 // === DOM Utility Helpers ===
 
 /**
+ * Selects an element by ID safely, even if it starts with a number.
+ *
+ * @param {string} id - The ID of the element.
+ * @param {Document|HTMLElement} [scope=document] - Optional scope to search in.
+ * @returns {HTMLElement|null}
+ */
+export const byId = (id, scope = document) => scope.getElementById(id);
+
+/**
  * Selects the first DOM element that matches a CSS selector.
  *
  * @param {string} selector - The CSS selector to match.

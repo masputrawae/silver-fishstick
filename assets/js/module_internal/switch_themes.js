@@ -1,55 +1,60 @@
 import { $, $$ } from "./helper";
 
 export function themeHandler() {
-  const KEY = "THEME";
   const elHtml = document.documentElement;
   const themeOrder = ["auto", "dark", "light"];
-  const useElements = $$("svg.icon--theme use");
-  const label = $(".theme");
-  const toggleBtn = $("#toggleTheme");
+  const themeIcons = $$("svg.icon--theme use");
 
-  if (!useElements.length) {
+  if (!themeIcons.length) {
     console.warn("⚠️ No theme icons found.");
     return;
   }
 
+  const iconUseEl = themeIcons[0];
+  const href = iconUseEl.getAttribute("href") || "";
+  const [path] = href.includes("#") ? href.split("#") : [""];
+
   const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
-  const [path] = (useElements[0].getAttribute("href") || "").split("#");
 
-  const getIconId = (theme) =>
-    theme === "auto"
-      ? "icon-pc-display"
-      : theme === "dark"
-        ? "icon-sun"
-        : "icon-moon-stars-fill";
+  const ICONS = {
+    auto: "icon-pc-display",
+    dark: "icon-moon-stars-fill",
+    light: "icon-sun",
+  };
+
+  const getIconId = (theme) => ICONS[theme] || ICONS.auto;
 
   const applyTheme = (theme) => {
+    if (!themeOrder.includes(theme)) theme = "auto";
     const resolved = theme === "auto" ? systemTheme : theme;
     elHtml.dataset.theme = resolved;
-    sessionStorage.setItem(KEY, theme);
+    sessionStorage.setItem("THEME", theme);
 
     const iconId = getIconId(theme);
-    useElements.forEach((el) => el.setAttribute("href", `${path}#${iconId}`));
+    themeIcons.forEach((el) => el.setAttribute("href", `${path}#${iconId}`));
 
-    $('select[name="select-theme"]', label).value = theme;
+    const themeSelect = $('select[name="select-theme"]', $(".theme"));
+    if (themeSelect) themeSelect.value = theme;
   };
 
   const init = () => {
-    const saved = sessionStorage.getItem(KEY);
+    const saved = sessionStorage.getItem("THEME");
     applyTheme(saved || "auto");
   };
 
-  $('select[name="select-theme"]', label).addEventListener("change", (e) =>
-    applyTheme(e.target.value),
-  );
+  const themeSelect = $('select[name="select-theme"]', $(".theme"));
+  if (themeSelect) {
+    themeSelect.addEventListener("change", (e) => applyTheme(e.target.value));
+  }
 
+  const toggleBtn = $("#toggleTheme");
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
-      const current = sessionStorage.getItem(KEY) || "auto";
-      const next =
-        themeOrder[(themeOrder.indexOf(current) + 1) % themeOrder.length];
+      const current = sessionStorage.getItem("THEME") || "auto";
+      const currentIndex = themeOrder.indexOf(current);
+      const next = themeOrder[(currentIndex + 1) % themeOrder.length];
       applyTheme(next);
     });
   }

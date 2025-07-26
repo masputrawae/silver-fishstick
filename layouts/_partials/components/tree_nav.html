@@ -19,13 +19,17 @@
         <li class="tree__section">
           <button 
             class="tree__toggle" 
-            data-folder-target="{{ .RelPermalink | md5 }}"
+            data-folder-target="id-{{ .RelPermalink | md5 }}"
           >
             {{ .LinkTitle }}
-            {{ partial "components/icon" (dict "name" "chevron-right" "class" "tree__icon-toggle") }}
+            {{ if $isOpen }}
+              {{ partial "components/icon" (dict "name" "chevron-right" "class" "tree__icon-toggle tree__icon-toggle--isOpen") }}
+            {{ else }}
+              {{ partial "components/icon" (dict "name" "chevron-right" "class" "tree__icon-toggle") }}
+            {{ end }}
           </button>
 
-          <ul id="{{ .RelPermalink | md5 }}" class="tree__list{{ if $isOpen }} tree__list--isOpen{{ end }}">
+          <ul id="id-{{ .RelPermalink | md5 }}" class="tree__list{{ if $isOpen }} tree__list--isOpen{{ end }}">
             {{- template "tree_view" (dict "Page" . "CurrentPage" $current) }}
           </ul>
         </li>

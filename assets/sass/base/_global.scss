@@ -11,7 +11,12 @@ html {
 }
 
 main {
+  padding-block: 5rem;
   padding-inline: 1rem;
+}
+
+footer {
+  padding-block: 5rem;
 }
 
 button {
@@ -27,4 +32,29 @@ button {
 
 .sr-only {
   @include m.visually-hidden();
+}
+
+.social {
+  @include m.flex-justify(center, center);
+  gap: 1rem;
+  margin-block: 2rem;
+
+  &__icon {
+    @include m.size(v.$fs-6xl);
+  }
+}
+
+.language {
+  @include m.flex-justify(center, center);
+  
+  &__icon {
+    @include m.size(v.$fs-5xl)
+  }
+  
+  &__select {
+    padding: 0.5rem 1rem;
+    background-color: var(--second-bg);
+    color: var(--base-color);
+    outline: none;
+  }
 }
