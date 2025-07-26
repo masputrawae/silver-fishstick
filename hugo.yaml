@@ -19,7 +19,7 @@ params:
   logo: assets/images/logo.png
 
   # PAGE SETTING
-  defaultEditPage: false
+  defaultEditPage: true
   defaultMath: false
   defaultGiscus: false
 

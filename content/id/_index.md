@@ -2,6 +2,14 @@
 title: Dokumentasi Hugo - Beranda
 description: Selamat datang di dokumentasi Hugo versi Bahasa Indonesia.
 math: true 
+tags: 
+  - test
+  - tutorial
+  - apapun
+  - siapa_dia
+  - entahlah
+  - hanya_uji_coba
+  - wumbo-jumbo
 ---
 
 [[about]]

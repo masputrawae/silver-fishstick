@@ -126,6 +126,30 @@
   }
 }
 
+.terms {
+  &__list {
+    @include m.flex-justify(start, center);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    @include m.flex-justify(center, center);
+    @include m.transition(transform);
+    color: var(--cl-white);
+    font-weight: 600;
+    background-color: var(--primary-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 99999rem;
+    border: 1px solid var(--primary-border);
+    box-shadow: var(--base-shadow);
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
 #TableOfContents {
   ul ul {
     padding-inline-start: 1.25rem;

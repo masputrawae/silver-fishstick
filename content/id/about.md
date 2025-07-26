@@ -1,6 +1,8 @@
 ---
 title: Tentang
 description: Selamat datang di dokumentasi Hugo versi Bahasa Indonesia.
+tags: 
+  - test
 ---
 
 Tempor et laborum consectetur aute officia. Elit ipsum dolor culpa eiusmod Lorem eiusmod irure irure mollit est sint. Dolore cillum laborum sint et in fugiat voluptate id duis duis cupidatat fugiat. Voluptate amet quis elit adipisicing aute elit veniam sunt fugiat mollit commodo non. Magna ex ad qui cupidatat eu incididunt ullamco.
