@@ -1,7 +1,7 @@
 <footer class="footer">
   {{ partial "components/pager" . }}
-  {{ if .Params.giscus | default site.Params.giscus | default false }}
+  {{ if .Params.giscus | default site.Params.giscus | default true }}
     {{ partial "components/giscus" . }}
   {{ end }}
-  {{ partial "components/giscus" . }}
+  {{ partial "components/copyright" . }}
 </footer>

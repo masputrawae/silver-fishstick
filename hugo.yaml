@@ -33,7 +33,7 @@ params:
     - categories
 
   # GISCUS
-  giscus: false
+  giscus: true
   giscusConfig:
     dataRepo: "masputrawae/masputrawae.github.io"
     dataRepoId: "R_kgDOPAdouw"

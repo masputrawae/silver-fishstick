@@ -1,9 +1,7 @@
 ---
-title: Beranda
+title: Dokumentasi Hugo - Beranda
 description: Selamat datang di dokumentasi Hugo versi Bahasa Indonesia.
 ---
-
-# **Dokumentasi Hugo - Beranda**
 
 **Selamat datang di dokumentasi Hugo versi Bahasa Indonesia!**
 

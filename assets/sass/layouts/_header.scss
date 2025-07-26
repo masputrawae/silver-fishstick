@@ -80,7 +80,7 @@
   }
 
   &__input {
-    width: 70%;
+    width: 80%;
     background-color: var(--base-bg);
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
@@ -93,29 +93,16 @@
     color: var(--second-color);
   }
 }
-/* Container UL */
-.results {
-  list-style: none;
-  padding: 0;
-  margin: 1rem;
-  background: var(--base-bg);
-  border-radius: 8px;
-  box-shadow: var(--base-shadow);
-  overflow: hidden;
-  border: 1px solid var(--base-border);
 
+.results {
   &__item {
     padding: 1rem;
+    margin: 1rem;
     border-bottom: 1px solid var(--second-shadow);
-    transition: background 0.2s;
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &:hover {
-      background-color: var(--second-bg);
-    }
+    background-color: var(--second-bg);
+    border: 1px solid var(--base-border);
+    box-shadow: var(--base-shadow);
+    border-radius: 0.25rem;
   }
 
   &__link {

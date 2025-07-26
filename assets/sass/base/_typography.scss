@@ -9,8 +9,9 @@
   overflow-wrap: anywhere;
   hyphens: auto;
 
-  :where(h1, h2, h3, h4, h5, h6) {
+  :is(h1, h2, h3, h4, h5, h6) {
     color: var(--second-color);
+    font-weight: 600;
     margin-block-start: 1.5rem;
     margin-block-end: 1rem;
     padding-block-end: 0.5rem;
