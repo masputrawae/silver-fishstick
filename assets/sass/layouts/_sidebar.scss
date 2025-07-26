@@ -23,9 +23,6 @@
     inset-inline-end: 0;
     background-color: var(--base-bg);
     transform: translateX(100%);
-
-    transform: translateX(0%);
-    visibility: visible;
   }
 
   &--isOpen {
@@ -137,5 +134,45 @@
     &.isActive {
       color: var(--primary);
     }
+  }
+}
+
+.git-history {
+  &__list {
+    border-inline-start: 1px dashed var(--base-border);
+    padding-inline-start: 1.25rem;
+    margin-inline-start: 0.25rem;
+  }
+
+  &__link {
+    display: grid;
+    padding: 1rem;
+    background-color: var(--second-bg);
+    border-radius: 0.5rem;
+    border: 1px solid var(--base-border);
+    margin-block: 1.5rem;
+    position: relative;
+    box-shadow: var(--base-shadow);
+
+    &::before {
+      content: "";
+      @include m.circle(1rem);
+      position: absolute;
+      inset-inline-start: -1.85rem;
+      inset-block-start: 35%;
+      background-color: var(--cl-black);
+      border: 2px solid var(--primary);
+      box-shadow: var(--base-shadow);
+    }
+  }
+
+  &__date {
+    font-size: v.$fs-3xs;
+    color: var(--second-color);
+  }
+
+  &__subject {
+    font-size: v.$fs-sm;
+    color: var(--third-color);
   }
 }

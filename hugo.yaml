@@ -296,7 +296,7 @@ markup:
     style: "github-dark"
     noClasses: false
     lineNumbersInTable: false
-    lineNos: true
+    lineNos: false
     anchorLineNos: false
     lineAnchors: ""
     lineNoStart: 1

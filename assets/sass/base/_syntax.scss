@@ -36,7 +36,7 @@ code:not(pre code) {
 
   pre {
     @include m.custom-scrollbar(var(--base-border), var(--primary));
-    padding: 2.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
     margin-block: 3rem;
     background-color: var(--second-bg);
     border: 1px solid var(--base-border);
