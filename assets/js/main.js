@@ -7,7 +7,7 @@ import { themeHandler } from "./module_internal/switch_themes.js";
 import { tocHandler } from "./module_internal/table_of_contents.js";
 import { treeHandler } from "./module_internal/tree_collapsible.js";
 
-const main = () => {
+document.addEventListener("DOMContentLoaded", () => {
   handlerCopyCode();
   themeHandler();
   langHandler();
@@ -17,6 +17,4 @@ const main = () => {
   searchHandler();
   dialogSearchToggle();
   linkPreviewHandler();
-};
-
-document.addEventListener("DOMContentLoaded", main);
+});

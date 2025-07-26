@@ -1,5 +1,4 @@
 import { $, $$ } from './helper.js'
-
 import {
   computePosition,
   autoPlacement,
@@ -8,11 +7,19 @@ import {
 
 export function linkPreviewHandler() {
   const tooltip = $('#linkpreview')
+  if (!tooltip) return console.warn('⚠️ Tooltip element #linkpreview not found.')
+
   const elements = $$('.markdown a')
+  const origin = window.location.origin
 
   let currentHref = ''
   let showPreviewTimer
   let hidePreviewTimer
+
+  function resetTooltip() {
+    tooltip.style.display = ''
+    tooltip.innerHTML = ''
+  }
 
   function hideLinkPreview() {
     clearTimeout(showPreviewTimer)
@@ -20,7 +27,7 @@ export function linkPreviewHandler() {
 
     hidePreviewTimer = setTimeout(() => {
       currentHref = ''
-      tooltip.style.display = ''
+      resetTooltip()
       hidePreviewTimer = undefined
     }, 200)
   }
@@ -34,8 +41,13 @@ export function linkPreviewHandler() {
   tooltip.addEventListener('mouseenter', clearTimers)
   tooltip.addEventListener('mouseleave', hideLinkPreview)
 
+  async function getPagePreviewContent(href) {
+    const text = await fetch(href).then((x) => x.text())
+    const doc = new DOMParser().parseFromString(text, 'text/html')
+    return doc.querySelector('.markdown')?.outerHTML || ''
+  }
+
   async function showLinkPreview(e) {
-    const start = `${window.location.protocol}//${window.location.host}`
     const target = e.target.closest('a')
     if (!target) return
 
@@ -48,7 +60,7 @@ export function linkPreviewHandler() {
 
     if (
       hrefWithoutAnchor === locationWithoutAnchor ||
-      !href.startsWith(start)
+      !href.startsWith(origin)
     ) {
       hideLinkPreview()
       return
@@ -57,17 +69,15 @@ export function linkPreviewHandler() {
     clearTimers()
 
     try {
-      const text = await fetch(href).then(x => x.text())
+      const content = await getPagePreviewContent(href)
       if (currentHref !== href) return
 
       showPreviewTimer = setTimeout(() => {
         if (currentHref !== href) return
 
-        const doc = new DOMParser().parseFromString(text, 'text/html')
-        const content = doc.querySelector('.markdown')?.outerHTML
-
-        tooltip.innerHTML = content || ''
+        tooltip.innerHTML = content
         tooltip.style.display = 'block'
+        tooltip.dataset.theme = document.documentElement.dataset.theme
 
         let offsetTop = 0
         if (hash) {

@@ -21,7 +21,7 @@ params:
   # PAGE SETTING
   defaultEditPage: true
   defaultMath: false
-  defaultGiscus: false
+  defaultGiscus: true
 
   # GIT INFO
   ghrepo: masputrawae/silver-fishstick

@@ -1,7 +1,9 @@
 {{- $gi := site.Params.giscusConfig }}
 
+
 <div class="discussion">
   <script
+    id="giscus-thread"
     src="https://giscus.app/client.js"
     data-repo="{{- $gi.dataRepo }}"
     data-repo-id="{{- $gi.dataRepoId }}"
@@ -13,7 +15,6 @@
     data-emit-metadata="{{- $gi.dataEmitMetadata }}"
     data-input-position="{{- $gi.dataInputPosition }}"
     data-lang="{{- site.Language.LanguageCode -}}"
-
     data-theme="preferred_color_scheme"
     data-loading="lazy"
     crossorigin="anonymous"

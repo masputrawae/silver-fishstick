@@ -5,40 +5,49 @@ export function dialogSearchToggle() {
   $$('[data-dialog="searchBar"]').forEach((btn) => {
     btn.addEventListener("click", () => {
       const dialog = $("#searchBar");
+      const input = $("#searchInput");
+      const panel = $("#results");
 
-      if (!dialog) return;
+      if (!dialog || !input || !panel) return;
 
       if (dialog.open) {
         dialog.close();
       } else {
         dialog.showModal();
-        searchInput.focus();
+        input.focus();
       }
 
-      searchInput.value = "";
-      resultsPanel.innerHTML = "";
-      resultsPanel.hidden = true;
+      input.value = "";
+      panel.innerHTML = "";
+      panel.hidden = true;
     });
   });
 }
 
 export async function searchHandler() {
+  const searchInput = $("#searchInput");
+  const resultsPanel = $("#results");
+
+  if (!searchInput || !resultsPanel) return;
+
+  const clearSearch = () => {
+    searchInput.value = "";
+    resultsPanel.innerHTML = "";
+    resultsPanel.hidden = true;
+  };
+
+  const translation = resultsPanel.dataset.translate
+    ? JSON.parse(resultsPanel.dataset.translate)
+    : {
+        searchCurrentlyUnavailable: "Search is currently unavailable",
+        noResultsFoundFor: "No results found for",
+      };
+
   try {
-    const searchInput = $("#searchInput");
-    const resultsPanel = $("#results");
     const searchUrl = searchInput.dataset.searchUrl;
-
-    const translation = resultsPanel.dataset.translate
-      ? JSON.parse(resultsPanel.dataset.translate)
-      : {
-          searchCurrentlyUnavailable: "Search is currently unavailable",
-          noResultsFoundFor: "No results found for",
-        };
-
     const response = await fetch(searchUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch search index: ${response.status}`);
-    }
+
+    if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
 
     const store = await response.json();
 
@@ -58,31 +67,24 @@ export async function searchHandler() {
     });
 
     const displayResults = (results, query) => {
-      if (query.length < 2) {
-        resultsPanel.hidden = true;
-        resultsPanel.innerHTML = "";
-        return;
-      }
+      if (query.length < 2) return clearSearch();
 
-      if (results.length === 0) {
-        resultsPanel.innerHTML = `
-          <li class="results__item results__item--empty">
+      resultsPanel.innerHTML = results.length
+        ? results
+            .map((res) => {
+              const item = res.item;
+              return `
+                <li class="results__item">
+                  <a class="results__link" href="${item.url}">
+                    ${item.title}
+                  </a>
+                  <p class="results__snippet">${item.content || item.description}</p>
+                </li>`;
+            })
+            .join("")
+        : `<li class="results__item results__item--empty">
             ${translation.noResultsFoundFor}: "${query}"
           </li>`;
-      } else {
-        resultsPanel.innerHTML = results
-          .map((result) => {
-            const item = result.item;
-            return `
-              <li class="results__item">
-                <a class="results__link" href="${item.url}">
-                  ${item.title}
-                </a>
-                <p class="results__snippet">${item.content || item.description}</p>
-              </li>`;
-          })
-          .join("");
-      }
 
       resultsPanel.hidden = false;
     };
@@ -90,58 +92,37 @@ export async function searchHandler() {
     const handleSearch = (event) => {
       event?.preventDefault();
       const query = searchInput.value.trim();
-      if (query.length >= 2) {
-        const results = fuse.search(query);
-        displayResults(results, query);
-      } else {
-        resultsPanel.hidden = true;
-        resultsPanel.innerHTML = "";
-      }
+      const results = query.length >= 2 ? fuse.search(query) : [];
+      displayResults(results, query);
     };
 
-    const debounce = (func, wait = 300) => {
-      let timeout;
+    const debounce = (fn, wait = 300) => {
+      let t;
       return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), wait);
+        clearTimeout(t);
+        t = setTimeout(() => fn(...args), wait);
       };
     };
 
-    // Add event listeners
+    // Bind listeners
     searchInput.addEventListener("input", debounce(handleSearch, 300));
 
-    // Optional: clear search on close button
     const closeBtn = $(".search-bar__btn-close");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
-        searchInput.value = "";
-        resultsPanel.innerHTML = "";
-        resultsPanel.hidden = true;
-      });
-    }
+    if (closeBtn) closeBtn.addEventListener("click", clearSearch);
 
-    // Optional: prefill query from URL ?query=...
-    const urlParams = new URLSearchParams(window.location.search);
-    const initialQuery = urlParams.get("query");
+    // Prefill from URL
+    const params = new URLSearchParams(location.search);
+    const initialQuery = params.get("query");
     if (initialQuery) {
       searchInput.value = initialQuery;
       setTimeout(() => handleSearch(new Event("submit")), 100);
     }
-  } catch (error) {
-    console.error("Search error:", error);
-    const resultsPanel = $("#results");
-    const translation = resultsPanel.dataset.translate
-      ? JSON.parse(resultsPanel.dataset.translate)
-      : {};
-
-    const message =
-      translation.searchCurrentlyUnavailable ||
-      "Search is currently unavailable";
-
+  } catch (err) {
+    console.error("Search error:", err);
     resultsPanel.hidden = false;
     resultsPanel.innerHTML = `
       <li class="results__item results__item--error">
-        ${message}
+        ${translation.searchCurrentlyUnavailable}
       </li>`;
   }
 }

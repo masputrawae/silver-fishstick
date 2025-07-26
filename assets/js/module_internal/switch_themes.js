@@ -4,6 +4,7 @@ export function themeHandler() {
   const elHtml = document.documentElement;
   const themeOrder = ["auto", "dark", "light"];
   const themeIcons = $$("svg.icon--theme use");
+  const KEY_THEME = "APP_THEME";
 
   if (!themeIcons.length) {
     console.warn("⚠️ No theme icons found.");
@@ -26,33 +27,41 @@ export function themeHandler() {
 
   const getIconId = (theme) => ICONS[theme] || ICONS.auto;
 
+  const resolveTheme = (theme) => {
+    if (!themeOrder.includes(theme)) return "auto";
+    return theme === "auto" ? systemTheme : theme;
+  };
+
   const applyTheme = (theme) => {
-    if (!themeOrder.includes(theme)) theme = "auto";
-    const resolved = theme === "auto" ? systemTheme : theme;
+    const resolved = resolveTheme(theme);
     elHtml.dataset.theme = resolved;
-    sessionStorage.setItem("THEME", theme);
+    sessionStorage.setItem(KEY_THEME, theme);
 
     const iconId = getIconId(theme);
     themeIcons.forEach((el) => el.setAttribute("href", `${path}#${iconId}`));
 
-    const themeSelect = $('select[name="select-theme"]', $(".theme"));
+    const themeContainer = $(".theme");
+    const themeSelect = $('select[name="select-theme"]', themeContainer);
     if (themeSelect) themeSelect.value = theme;
   };
 
   const init = () => {
-    const saved = sessionStorage.getItem("THEME");
-    applyTheme(saved || "auto");
+    const saved = sessionStorage.getItem(KEY_THEME) || "auto";
+    const resolved = resolveTheme(saved);
+    applyTheme(saved);
   };
 
-  const themeSelect = $('select[name="select-theme"]', $(".theme"));
+  // === Event bindings ===
+  const themeContainer = $(".theme");
+  const themeSelect = $('select[name="select-theme"]', themeContainer);
   if (themeSelect) {
     themeSelect.addEventListener("change", (e) => applyTheme(e.target.value));
   }
 
-  const toggleBtn = $("#toggleTheme");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      const current = sessionStorage.getItem("THEME") || "auto";
+  const toggleButton = $("#toggleTheme");
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const current = sessionStorage.getItem(KEY_THEME) || "auto";
       const currentIndex = themeOrder.indexOf(current);
       const next = themeOrder[(currentIndex + 1) % themeOrder.length];
       applyTheme(next);

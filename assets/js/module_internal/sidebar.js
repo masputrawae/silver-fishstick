@@ -1,21 +1,20 @@
 import { $, $$ } from "./helper"
+
 export function sidebarHandler() {
-  const buttons = $$('[data-sidebar]')
+  const toggleButtons = $$('[data-sidebar]')
 
-  buttons.forEach(btn => {
-    const targetId = btn.getAttribute('data-sidebar')
-    const targetEL = $(`#${targetId}`)
+  toggleButtons.forEach(button => {
+    const targetId = button.getAttribute('data-sidebar')
+    const sidebar = $(`#${targetId}`)
+    if (!sidebar) return
 
-    btn.addEventListener('click', () => {
-      const isAlreadyOpen = targetEL.classList.contains('sidebar--isOpen')
-      const allSidebars = $$('.sidebar--isOpen')
+    button.addEventListener('click', () => {
+      const isOpen = sidebar.classList.contains('sidebar--isOpen')
       
-      allSidebars.forEach(sidebar => {
-        sidebar.classList.remove('sidebar--isOpen')
-      })
+      $$('.sidebar--isOpen').forEach(sb => sb.classList.remove('sidebar--isOpen'))
 
-      if (!isAlreadyOpen) {
-        targetEL.classList.add('sidebar--isOpen')
+      if (!isOpen) {
+        sidebar.classList.add('sidebar--isOpen')
       }
     })
   })
