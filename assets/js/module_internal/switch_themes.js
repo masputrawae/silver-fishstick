@@ -61,12 +61,12 @@ export function themeHandler() {
     if (themeSelect) themeSelect.value = theme;
     // 👉 Update tema Giscus juga
     updateGiscusTheme(resolved);
-    renderGiscus(resolved)
   };
 
   const init = () => {
     const saved = sessionStorage.getItem(KEY_THEME);
     applyTheme(saved || "auto");
+    renderGiscus(resolveTheme(saved))
   };
 
   // === Event bindings ===
