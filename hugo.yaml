@@ -19,12 +19,12 @@ params:
   logo: assets/images/logo.png
 
   # PAGE SETTING
-  editPage: true
-  toc: true
-  math: false
+  defaultEditPage: false
+  defaultMath: false
+  defaultGiscus: false
 
   # GIT INFO
-  ghrepo: masputrawae/masputrawae.github.io
+  ghrepo: masputrawae/silver-fishstick
   branch: main
 
   # WIDGET TAXONOMY
@@ -33,7 +33,6 @@ params:
     - categories
 
   # GISCUS
-  giscus: true
   giscusConfig:
     dataRepo: "masputrawae/masputrawae.github.io"
     dataRepoId: "R_kgDOPAdouw"

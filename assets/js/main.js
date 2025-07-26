@@ -1,4 +1,5 @@
 import { handlerCopyCode } from "./module_internal/copy_code.js";
+import { linkPreviewHandler } from "./module_internal/link_preview.js";
 import { dialogSearchToggle, searchHandler } from "./module_internal/search.js";
 import { sidebarHandler } from "./module_internal/sidebar.js";
 import { langHandler } from "./module_internal/switch_lang.js";
@@ -15,6 +16,7 @@ const main = () => {
   tocHandler();
   searchHandler();
   dialogSearchToggle();
+  linkPreviewHandler();
 };
 
 document.addEventListener("DOMContentLoaded", main);

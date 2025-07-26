@@ -1,7 +1,10 @@
 ---
 title: Dokumentasi Hugo - Beranda
 description: Selamat datang di dokumentasi Hugo versi Bahasa Indonesia.
+math: true 
 ---
+
+[[about]]
 
 **Selamat datang di dokumentasi Hugo versi Bahasa Indonesia!**
 

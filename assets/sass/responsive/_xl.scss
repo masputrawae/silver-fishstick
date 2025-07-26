@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/breakpoints" as b;
 
-@include b.min(lg) {
+@include b.min(xl) {
   .language,
   .theme {
     &__icon {
@@ -55,7 +55,6 @@
 
   .sidebar {
     &--left {
-      padding-block-start: 0;
       .language,
       .social {
         display: none;
@@ -63,7 +62,6 @@
     }
 
     &--right {
-      padding-block-start: 1.75rem;
       grid-area: sidebarright;
       visibility: visible;
       transform: translateX(0%);
@@ -73,5 +71,28 @@
 
   .main {
     padding-inline: 2rem;
+    max-width: 100ch;
+    margin-inline: auto;
+  }
+
+  .pager {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    &__link {
+      &--prev {
+        grid-column: 1;
+      }
+
+      &--next {
+        grid-column: 2;
+      }
+    }
+  }
+
+  footer {
+    max-width: 100ch;
+    margin-inline: auto;
   }
 }

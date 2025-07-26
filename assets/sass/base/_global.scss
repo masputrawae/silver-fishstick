@@ -11,11 +11,6 @@ html {
   font-weight: 400;
 }
 
-main {
-  padding-block: 5rem;
-  padding-inline: 1rem;
-}
-
 button {
   cursor: pointer;
 }
@@ -38,6 +33,11 @@ button {
 
   &__icon {
     @include m.size(v.$fs-6xl);
+    color: var(--primary-text-emphasis);
+
+    &:hover {
+      color: var(--second-color);
+    }
   }
 }
 
@@ -54,5 +54,15 @@ button {
     background-color: var(--second-bg);
     color: var(--base-color);
     outline: none;
+  }
+
+  &:hover {
+    .language,
+    .theme {
+      &__icon,
+      &__select {
+        color: var(--primary);
+      }
+    }
   }
 }

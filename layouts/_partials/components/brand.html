@@ -1,6 +1,6 @@
 <a href="{{ site.BaseURL | relLangURL }}" class="brand">
   {{ with site.Params.logo }}
-    <img src="{{ . | relURL }}" alt="{{ site.Title }}" class="brand__logo" />
+    <img src="{{ . | relURL }}" alt="{{ T "logo"}} {{ site.Title }}" class="brand__logo" />
   {{ else }}
     <span class="brand__emoji">{{ site.Params.emoji }}</span>
   {{ end }}

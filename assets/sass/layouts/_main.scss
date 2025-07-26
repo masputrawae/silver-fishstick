@@ -1,0 +1,43 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+main {
+  padding-block: 5rem;
+  padding-inline: 1rem;
+  width: 100%;
+}
+
+.pager {
+  display: grid;
+  gap: 1rem;
+  border-block-start: 1px solid var(--base-border);
+  padding-block-start: 1rem;
+  margin-block-start: 4rem;
+
+  &__link {
+    display: block;
+    border: 1px solid var(--base-border);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: var(--base-shadow);
+    color: var(--second-color);
+    padding: 1rem;
+
+    &--prev {
+      text-align: start;
+    }
+
+    &--next {
+      text-align: end;
+    }
+  }
+
+  &__label {
+    display: block;
+  }
+
+  &__title {
+    font-size: v.$fs-4xl;
+    font-weight: 600;
+  }
+}

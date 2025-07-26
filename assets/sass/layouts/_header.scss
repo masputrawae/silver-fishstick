@@ -54,7 +54,7 @@
   }
 
   &__emoji {
-    font-size: v.$fs-5xl;
+    font-size: v.$fs-8xl;
   }
 
   &__title {
@@ -62,7 +62,7 @@
     color: var(--second-color);
     text-shadow: var(--base-text-shadow);
     font-family: v.$font-serif;
-    font-size: v.$fs-5xl;
+    font-size: v.$fs-8xl;
   }
 }
 

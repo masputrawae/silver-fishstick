@@ -1,4 +1,10 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ partial "layouts/markdown" . }}
+  
+  {{ if .Params.edit_page | default site.Params.edit_page | default false }}
+    {{ partial "components/edit_page" . }}
+  {{ end }}
+
+  {{ partial "components/pager" . }}
 {{ end }}

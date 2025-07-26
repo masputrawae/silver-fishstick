@@ -1,6 +1,6 @@
 <aside class="sidebar sidebar--right" id="sidebarRight">
   <div class="widget">
-    <strong class="widget__title">On This Page</strong>
+    <strong class="widget__title">{{ T "onThisPage"}}</strong>
     {{ .TableOfContents }}
   </div>
   {{ range $taxonomy := site.Params.displayTaxonomies }}
