@@ -14,23 +14,3 @@
   })();
 </script>
 
-{{- if .Store.Get "hasMermaid" }}
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-{{- end }}
-
-{{- if .Param "math" | default site.Params.defaultMath | default false }}
-  <script>
-    MathJax = {
-      tex: {
-        displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
-        inlineMath: [['\\(', '\\)']]                  // inline
-      },
-      loader:{
-        load: ['ui/safe']
-      },
-    };
-  </script>
-{{- end }}
