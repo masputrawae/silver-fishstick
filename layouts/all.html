@@ -10,11 +10,9 @@
       {{ end }}
     </ul>
   {{ else }}
-
     {{ if .Params.edit_page | default site.Params.defaultEditPage | default false }}
       {{ partial "components/edit_page" . }}
     {{ end }}
+    {{ partial "components/pager" . }}
   {{ end }}
-
-  {{ partial "components/pager" . }}
 {{ end }}

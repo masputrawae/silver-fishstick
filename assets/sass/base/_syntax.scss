@@ -18,6 +18,9 @@ code:not(pre code) {
 
 .highlight {
   position: relative;
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: plaintext;
 
   &::before,
   & code::before {

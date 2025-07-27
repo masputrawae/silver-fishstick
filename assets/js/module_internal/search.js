@@ -7,14 +7,17 @@ export function dialogSearchToggle() {
       const dialog = $("#searchBar");
       const input = $("#searchInput");
       const panel = $("#results");
+      const overlay = $("#overlay");
 
       if (!dialog || !input || !panel) return;
 
       if (dialog.open) {
         dialog.close();
+        overlay.classList.remove("overlay--isActive");
       } else {
         dialog.showModal();
         input.focus();
+        overlay.classList.add("overlay--isActive");
       }
 
       input.value = "";
@@ -67,7 +70,7 @@ export async function searchHandler() {
     });
 
     const displayResults = (results, query) => {
-      if (query.length < 2) return clearSearch();
+      if (query.length < 1) return clearSearch();
 
       resultsPanel.innerHTML = results.length
         ? results

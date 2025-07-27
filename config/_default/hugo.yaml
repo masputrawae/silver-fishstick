@@ -1,0 +1,40 @@
+#===================
+# BASE SETTING
+#===================
+baseURL                         : https://masputrawae.github.io/silver-fishstick/
+title                           : My Notes
+
+languageCode                    : id
+defaultContentLanguage          : id
+
+defaultContentLanguageInSubdir  : false
+disableDefaultLanguageRedirect  : true
+
+enableEmoji                     : true
+enableGitInfo                   : true
+
+#===================
+# OUTPUT SETTING
+#===================
+mediaType                : 'application/json'
+outputFormats:
+  search:
+    mediaType            : 'application/json'
+    baseName             : 'search'
+    isPlainText          : true
+    notAlternative       : true
+    
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+
+#===================
+# MODULES SETTING
+#===================
+module:
+  hugoVersion:
+    extended: true
+    min: "0.148.1"

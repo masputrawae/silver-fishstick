@@ -1,0 +1,168 @@
+#===================
+# BAHASA INDONESIA
+#===================
+id:
+  languageCode: id
+  contentDir: content/id
+  languageName: Bahasa Indonesia
+  weight: 1
+  timeZone: Asia/Jakarta
+
+  # See language support at https://giscus.app/
+  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+  params:
+    giscusLang: id
+
+  menus:
+    main:
+      - name: Beranda
+        pageRef: /
+        weight: 10
+        params: { icon: house }
+
+      - name: Mulai Dari Sini
+        pageRef: /get-started
+        weight: 20
+        params: { icon: rocket-takeoff }
+
+      - name: Tutorial
+        pageRef: /tutorial
+        weight: 30
+        params: { icon: tools }
+
+      - name: Blog
+        pageRef: /blog
+        weight: 40
+        params: { icon: paragraph }
+
+      - name: Tentang
+        pageRef: /about
+        weight: 50
+        params: { icon: person-circle }
+
+#===================
+# ENGLISH
+#===================
+en:
+  languageCode: en-US
+  contentDir: content/en
+  languageName: English
+  weight: 2
+  timeZone: UTC
+
+  # See language support at https://giscus.app/
+  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+  params:
+    giscusLang: en
+
+  menus:
+    main:
+      - name: Home
+        pageRef: /
+        weight: 10
+        params: { icon: house }
+
+      - name: Get Started
+        pageRef: /get-started
+        weight: 20
+        params: { icon: rocket-takeoff }
+
+      - name: Tutorial
+        pageRef: /tutorial
+        weight: 30
+        params: { icon: tools }
+
+      - name: Blog
+        pageRef: /blog
+        weight: 40
+        params: { icon: paragraph }
+
+      - name: About
+        pageRef: /about
+        weight: 50
+        params: { icon: person-circle }
+
+#===================
+# العربية
+#===================
+ar:
+  languageCode: ar
+  languageDirection: rtl
+  contentDir: content/ar
+  languageName: العربية
+  weight: 3
+  timeZone: Asia/Riyadh
+
+  # See language support at https://giscus.app/
+  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+  params:
+    giscusLang: ar
+
+  menus:
+    main:
+      - name: الرئيسية
+        pageRef: /
+        weight: 10
+        params: { icon: house }
+
+      - name: ابدأ هنا
+        pageRef: /get-started
+        weight: 20
+        params: { icon: rocket-takeoff }
+
+      - name: الدروس
+        pageRef: /tutorial
+        weight: 30
+        params: { icon: tools }
+
+      - name: المدونة
+        pageRef: /blog
+        weight: 40
+        params: { icon: paragraph }
+
+      - name: حول
+        pageRef: /about
+        weight: 50
+        params: { icon: person-circle }
+
+#===================
+# 中文
+#===================
+cn:
+  languageCode: zh-CN
+  contentDir: content/cn
+  languageName: 中文
+  weight: 4
+  timeZone: Asia/Shanghai
+  
+  # See language support at https://giscus.app/
+  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+  params:
+    giscusLang: zh-CN
+
+  menus:
+    main:
+      - name: 首页
+        pageRef: /
+        weight: 10
+        params: { icon: house }
+
+      - name: 快速开始
+        pageRef: /get-started
+        weight: 20
+        params: { icon: rocket-takeoff }
+
+      - name: 教程
+        pageRef: /tutorial
+        weight: 30
+        params: { icon: tools }
+
+      - name: 博客
+        pageRef: /blog
+        weight: 40
+        params: { icon: paragraph }
+
+      - name: 关于
+        pageRef: /about
+        weight: 50
+        params: { icon: person-circle }

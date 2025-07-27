@@ -10,5 +10,5 @@
   data-reactions-enabled="{{ $gi.dataReactionsEnabled }}"
   data-emit-metadata="{{ $gi.dataEmitMetadata }}"
   data-input-position="{{ $gi.dataInputPosition }}"
-  data-lang="{{ site.Language.LanguageCode }}"
+  data-lang="{{ site.Params.giscusLang | default site.Language.LanguageCode | default "en" }}"
 ></div>
