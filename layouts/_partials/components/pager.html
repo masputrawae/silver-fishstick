@@ -1,4 +1,4 @@
-<div class="pager">
+<nav class="pager">
   {{ $pages := .CurrentSection.Pages.ByTitle }}
 
   {{ with $pages.Next . }}
@@ -21,4 +21,4 @@
     </a>
   {{ end }}
 
-</div>
+</nav>
