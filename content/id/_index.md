@@ -12,7 +12,7 @@ tags:
   - wumbo-jumbo
 ---
 
-[[about]]
+[[about]] [[broken]]
 
 **Selamat datang di dokumentasi Hugo versi Bahasa Indonesia!**
 

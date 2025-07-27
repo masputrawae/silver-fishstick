@@ -94,6 +94,15 @@
     .icon {
       @include m.size(v.$fs-sm);
     }
+
+    &--broken {
+      color: var(--danger);
+      cursor: not-allowed;
+
+      &:hover {
+        color: var(--danger-text-emphasis);
+      }
+    }
   }
 
   del {
