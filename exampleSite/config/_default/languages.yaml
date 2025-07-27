@@ -1,104 +1,68 @@
 #===================
-# BAHASA INDONESIA
-#===================
-id:
-  languageCode: id
-  contentDir: content/id
-  languageName: Bahasa Indonesia
-  weight: 1
-  timeZone: Asia/Jakarta
-
-  # See language support at https://giscus.app/
-  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
-  params:
-    giscusLang: id
-
-  menus:
-    main:
-      - name: Beranda
-        pageRef: /
-        weight: 10
-        params: { icon: house }
-
-      - name: Mulai Dari Sini
-        pageRef: /get-started
-        weight: 20
-        params: { icon: rocket-takeoff }
-
-      - name: Tutorial
-        pageRef: /tutorial
-        weight: 30
-        params: { icon: tools }
-
-      - name: Blog
-        pageRef: /blog
-        weight: 40
-        params: { icon: paragraph }
-
-      - name: Tentang
-        pageRef: /about
-        weight: 50
-        params: { icon: person-circle }
-
-#===================
 # ENGLISH
 #===================
-en:
-  languageCode: en-US
-  contentDir: content/en
-  languageName: English
-  weight: 2
-  timeZone: UTC
 
-  # See language support at https://giscus.app/
-  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+# Example of multilingual configuration.
+# For single-language setup, see the full theme documentation: https://lumos_themes.github.io/
+en:
+  languageCode: en-US                     # Language locale for English
+  contentDir: content/en                 # Directory where English content is stored
+  languageName: English                  # Display name of the language
+  weight: 1                              # Used to sort languages in language switcher
+  timeZone: UTC                          # Time zone used for English content
+
   params:
+    # Language setting for Giscus comments (https://giscus.app/)
+    # Leave blank to fallback to the site language, but make sure the language is supported by Giscus
     giscusLang: en
 
   menus:
+    # Customizable main menu for English site
+    # You can remove the whole menu section if using content structure as a tree menu
     main:
       - name: Home
-        pageRef: /
+        pageRef: /                       # Refers to the root index page
         weight: 10
-        params: { icon: house }
+        params: { icon: house }         # Optional icon for the menu item
 
       - name: Get Started
-        pageRef: /get-started
+        pageRef: /get-started           # Points to the "Get Started" page
         weight: 20
         params: { icon: rocket-takeoff }
 
       - name: Tutorial
-        pageRef: /tutorial
+        pageRef: /tutorial              # Points to the tutorial section
         weight: 30
         params: { icon: tools }
 
       - name: Blog
-        pageRef: /blog
+        pageRef: /blog                  # Points to the blog index
         weight: 40
         params: { icon: paragraph }
 
       - name: About
-        pageRef: /about
+        pageRef: /about                 # Points to the about page
         weight: 50
         params: { icon: person-circle }
 
 #===================
 # العربية
 #===================
-ar:
-  languageCode: ar
-  languageDirection: rtl
-  contentDir: content/ar
-  languageName: العربية
-  weight: 3
-  timeZone: Asia/Riyadh
 
-  # See language support at https://giscus.app/
-  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
+ar:
+  languageCode: ar                       # Language locale for Arabic
+  languageDirection: rtl                # Text direction is Right-to-Left (required for Arabic/Hebrew)
+  contentDir: content/ar                # Directory where Arabic content is stored
+  languageName: العربية                 # Display name of the language (in native script)
+  weight: 2                              # Used to sort languages in language switcher
+  timeZone: Asia/Riyadh                 # Time zone used for Arabic content
+
   params:
-    giscusLang: ar
+    # Language setting for Giscus comments
+    giscusLang: ar                      # Set to "ar" for Arabic Giscus interface
 
   menus:
+    # Customizable main menu for Arabic site (in Arabic)
     main:
       - name: الرئيسية
         pageRef: /
@@ -121,48 +85,6 @@ ar:
         params: { icon: paragraph }
 
       - name: حول
-        pageRef: /about
-        weight: 50
-        params: { icon: person-circle }
-
-#===================
-# 中文
-#===================
-cn:
-  languageCode: zh-CN
-  contentDir: content/cn
-  languageName: 中文
-  weight: 4
-  timeZone: Asia/Shanghai
-  
-  # See language support at https://giscus.app/
-  # Or leave it blank, the default is to use the site language. However, an error may occur if there is no language supported by giscus.
-  params:
-    giscusLang: zh-CN
-
-  menus:
-    main:
-      - name: 首页
-        pageRef: /
-        weight: 10
-        params: { icon: house }
-
-      - name: 快速开始
-        pageRef: /get-started
-        weight: 20
-        params: { icon: rocket-takeoff }
-
-      - name: 教程
-        pageRef: /tutorial
-        weight: 30
-        params: { icon: tools }
-
-      - name: 博客
-        pageRef: /blog
-        weight: 40
-        params: { icon: paragraph }
-
-      - name: 关于
         pageRef: /about
         weight: 50
         params: { icon: person-circle }
