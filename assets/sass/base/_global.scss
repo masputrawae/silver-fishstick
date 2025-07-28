@@ -15,6 +15,20 @@ button {
   cursor: pointer;
 }
 
+// SEMENTARA
+.btn {
+  padding: 0.25rem 0.75rem;
+  text-decoration: none;
+  background-color: var(--second-bg);
+  border: 1px solid var(--base-border);
+  border-radius: 0.25rem;
+  box-shadow: var(--base-shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--second-color);
+}
+
 .icon {
   @include m.size(v.$fs-base);
   display: inline-block;
