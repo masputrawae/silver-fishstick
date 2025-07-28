@@ -64,8 +64,8 @@ export function themeHandler() {
   };
 
   const init = () => {
-    const saved = sessionStorage.getItem(KEY_THEME);
-    applyTheme(saved || "auto");
+    const saved = sessionStorage.getItem(KEY_THEME) || "auto";
+    applyTheme(saved);
     renderGiscus(resolveTheme(saved))
   };
 
