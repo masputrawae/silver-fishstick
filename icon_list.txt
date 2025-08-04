@@ -96,6 +96,8 @@ paypal
 pinterest
 quora
 reddit
+rss-fill
+rss
 signal
 sina-weibo
 skype

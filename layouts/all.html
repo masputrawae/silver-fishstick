@@ -1,6 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ partial "layouts/markdown" . }}
+  <br>
   {{ if in (slice "section" "taxonomy" "term") .Kind }}
     <ul class="multi-column-list">
       {{ range .Pages }}
