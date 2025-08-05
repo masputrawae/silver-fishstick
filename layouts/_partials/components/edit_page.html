@@ -3,12 +3,15 @@
   {{- $filePath = printf "%s/%s" .Lang $filePath -}}
 {{- end -}}
 
-<a
-  href="https://github.com/{{- site.Params.ghrepo -}}/edit/{{- site.Params.branch -}}/content/{{- $filePath -}}?plain=1"
-  target="_blank"
-  rel="noopener noreferrer nofollow"
-  class="btn btn--primary"
->
-  {{- partial "components/icon" (dict "name" "pen") -}}
-  {{- T "editThisPage" -}}
-</a>
+
+<nav class="edit-page">
+  <a
+    href="https://github.com/{{- site.Params.ghrepo -}}/edit/{{- site.Params.branch -}}/content/{{- $filePath -}}?plain=1"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    class="btn btn--primary"
+  >
+    {{- partial "components/icon" (dict "name" "pen") -}}
+    {{- T "editThisPage" -}}
+  </a>
+</nav>

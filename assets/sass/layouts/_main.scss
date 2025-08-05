@@ -67,3 +67,10 @@ main {
     display: block;
   }
 }
+
+// EDIT PAGE
+.edit-page {
+  border-block-start: 1px solid var(--base-border);
+  padding-block-start: 0.5rem;
+  margin-block-start: 3rem;
+}
